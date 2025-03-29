@@ -13,11 +13,21 @@ body {
     background-attachment: fixed;
 }
 
+.psp {
+    background-color: #0067B8;
+    color:white;
+    padding-left:5px;
+    padding-right: 5px;
+    font-weight: 500;
+    margin-right: 6px;
+    border-radius: 4px;
+}
+
 .main_section {
     width:100%;
     box-sizing: border-box;
     padding:25px;
-    margin-bottom:50px;
+    margin-bottom:80px;
     user-select: none;
 }
 
@@ -91,8 +101,6 @@ body {
     box-shadow: 0px 0px 4px #AAAAAA;
 }
 
-
-
 .info_section {
     width:100%;
     box-sizing: border-box;
@@ -104,8 +112,22 @@ body {
     background-color: rgba(255,255,255,0.7);
 }
 
+::-webkit-scrollbar{
+    width: 7px;
+    height: 7px;
+    background-color:rgba(0,0,0,0);
+}
+
+::-webkit-scrollbar-thumb{
+    width: 10px;
+    height: 10px;
+    background-color:rgba(0,103,184,0.7);
+    border-radius: 3px;
+}
+
 .info_section h1 {
     color:#0067B8;
+    font-size:32px;
 }
 
 .info_section_body {
@@ -115,64 +137,85 @@ body {
     box-sizing: border-box;
 }
 
+.info_section_body a {
+    text-decoration: none;
+    user-select: none;
+}
+
 .info_section_item {
     box-shadow: 0px 0px 2px #888888;
     background-color: #fff;
     height:270px;
     width:300px;
     flex-grow: 0;
-    margin-left:15px;
-    margin-right:15px;
+    margin-left:14px;
+    margin-right:14px;
     margin-top:20px;
     border-radius: 10px;
     transition: all 0.2s;
     overflow: hidden;
 }
 
-.info_section_body a {
-    text-decoration: none;
-    user-select: none;
-}
-
-.info_section_item h3,p {
+.info_section_item h3 {
     margin-left:10px;
     margin-top:10px;
     text-decoration: none;
-}
-
-.info_section_item h3 {
     font-size:20px;
     color:#0067B8;
+    margin-bottom: 0;
 }
 
-.info_section_item p {
-    font-size:15px;
-    color:#888888
+.info_author_block {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.info_author_block p {
+    flex-grow: 0;
+    margin-bottom:0;
+    margin-right: 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:rgb(136, 136, 136);;
+}
+
+.info_author {
+    margin-right:10px;
+    margin-top: 10px;
+    width:34px;
+    height:34px;
+    border-radius: 4px;
+    border:2px solid rgba(0,0,0,0.4);
+    flex-grow: 0;
 }
 
 .info_section_item:hover {
     box-shadow: 1px 1px 10px #888888;
 }
 
-.info_section_cendisp {
+.display_section {
+    box-sizing: border-box;
+    height:600px;
+    background-repeat: no-repeat;
+    background-size:cover; 
+    background-attachment: fixed;
+    padding:50px;
+}
+
+.display_section_title {
+    display: flex;
+}
+
+.display_section_title h1 {
+    color:#0067B8;
+    font-size:22px;
     background-color: white;
-    padding:0;
-    box-shadow: 0px 0px 6px #888888;
-    width: calc(60%);
-    user-select: none;
+    padding: 10px;
+    margin: 0;
+    border-radius: 10px;
 }
-
-.info_section_cendisp img {
-    width:100%;
-    height:100%;
-    margin:0;
-}
-
-
-
-
-
-
 
 .member_section {
     width:100%;
@@ -189,6 +232,7 @@ body {
     color:#0067B8;
     width:100%;
     text-align: center;
+    font-size:32px;
 }
 
 .member_section_body {
@@ -255,6 +299,7 @@ body {
     margin-top:50px;
     padding:40px;
     box-sizing: border-box;
+    background-color:rgba(255,255,255,0.7);
 }
 
 .bottom_section h1{
@@ -295,36 +340,8 @@ body {
     width: 100%;
     padding:20px;
     color:#3C5675;
-    margin-top:50px;
     box-sizing: border-box;
-}
-
-.foot_section_link_div {
-    text-align: center;
-}
-
-.foot_section_link {
-    text-transform: uppercase;
-    font-size: 15px;
-    border-width: 2px;
-    user-select: none;
-    padding: 15px;
-    display: inline-block;
-    line-height: 1em;
-    margin: 0 8px;
-    margin-top:8px;
-    border:1px solid;
-    border-color:#4d5b6c;
-    color:#4d5b6c;
-    transition: color 0.4s, border-color 0.4s;
-    border-radius: 5px;
-}
-
-.foot_section_link:hover {
-    color:#007ACC;
-    border:1px solid;
-    border-radius: 5px;
-    border-color:#007ACC;
+    background-color:rgba(255,255,255,0.7);
 }
 
 .foot_section p {
@@ -336,9 +353,9 @@ body {
     padding:0;
     width:100%;
     max-width: 500px;
-    margin-top:20px;
     text-align: center;
     margin-bottom:40px;
+    margin-top:50px;
 }
 
 @media screen and (max-width: 700px) {
@@ -363,9 +380,10 @@ body {
         padding-right: 25px;
     }
 
-    .info_section_cendisp {
-        width:calc(90%);
+    .display_section {
+        padding:30px;
     }
+
 }
   
 @keyframes fadeInAnimation { 
