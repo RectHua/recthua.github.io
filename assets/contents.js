@@ -11,7 +11,6 @@
     const allTitles = document.querySelectorAll(titleSelectors);
 
     if (allTitles.length === 0) {
-        console.warn('[TOC] 未找到任何标题，请检查选择器。');
         return;
     }
 

@@ -344,5 +344,4 @@
     }
 
     bindImages();
-    console.log('[IR Lightbox] 已启动（带阻尼回弹优化）。');
 })();
