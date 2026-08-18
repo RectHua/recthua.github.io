@@ -100,23 +100,10 @@ body {
     /* 主题切换时颜色平滑过渡 */
     transition: background-color 0.3s ease, color 0.3s ease;
     overflow-x: hidden;
-}
-
-/* 视口顶部固定渐变层：始终悬挂在页面顶部，
-   使"导航区"（透明导航或胶囊导航后方）与下方 hero 渐变连续，
-   避免滚动后顶部出现突兀的纯色块（不会随内容滚走） */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 520px;
-    z-index: -1;                     /* 置于内容之下、页面背景之上 */
-    pointer-events: none;
-    background:
-        radial-gradient(600px 280px at 18% 0%, var(--accent-glow), transparent 70%),
-        radial-gradient(640px 300px at 82% 10%, var(--accent-glow), transparent 70%);
+    background-image: url('./main.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* 选择文字颜色 */
@@ -160,6 +147,8 @@ html[data-theme="dark"] {
     border: 1px solid transparent;   /* 边框宽度恒定，仅过渡颜色 */
     border-radius: 0;
     box-shadow: none;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(14px) saturate(1.4);
     transition:
         max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
         margin 0.45s cubic-bezier(0.4, 0, 0.2, 1),
@@ -341,31 +330,6 @@ html[data-theme="dark"] {
     text-align: center;
 }
 
-/* 背景装饰：两组主色光晕 + 极淡的网格（纯 CSS，无图片依赖） */
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(600px 280px at 18% 0%, var(--accent-glow), transparent 70%),
-        radial-gradient(640px 300px at 82% 10%, var(--accent-glow), transparent 70%);
-    pointer-events: none;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 44px 44px;
-    opacity: 0.35;
-    -webkit-mask-image: radial-gradient(700px 320px at 50% 0%, #000 20%, transparent 75%);
-    mask-image: radial-gradient(700px 320px at 50% 0%, #000 20%, transparent 75%);
-    pointer-events: none;
-}
-
 .hero-inner {
     position: relative;
     z-index: 1;
@@ -379,18 +343,20 @@ html[data-theme="dark"] {
     flex-wrap: wrap;
     gap: 8px 20px;
     font-size: 13.5px;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.65);
     margin-bottom: 28px;
 }
 
 /* 英雄区大标题 */
+/* hero 固定"浅色（白色）元素"表现：不随页面深浅色主题变化，
+   适配 body 的深色 main.png 背景 */
 .hero h1 {
     font-size: clamp(32px, 5.5vw, 54px);
     font-weight: 500;
     line-height: 1.2;
     letter-spacing: -0.5px;
     margin-bottom: 14px;
-    background: var(--text);
+    background: #FFFFFF;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -400,7 +366,7 @@ html[data-theme="dark"] {
     max-width: 640px;
     margin: 0 auto 26px;
     font-size: 15.5px;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.85);
     font-style: italic;
 }
 
@@ -429,6 +395,10 @@ html[data-theme="dark"] {
     margin: 0 auto;
     padding: 0 clamp(16px, 4vw, 40px);
     gap: 40px;
+    padding-top: 40px;
+    background-color: var(--bg);
+    padding-bottom: 40px;
+    border-radius: 10px;
 }
 
 /* ---- 侧边目录 ---- */
@@ -546,7 +516,7 @@ html[data-theme="dark"] {
     margin-top: 2px;
     line-height: 1.5;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -631,7 +601,6 @@ html[data-theme="dark"] {
    ------------------------------------------------------------ */
 .article h2 {
     font-size: 26px;
-    font-weight: 800;
     letter-spacing: -0.3px;
     margin: 8px 0 18px;
     padding-bottom: 10px;
@@ -1126,12 +1095,13 @@ html[data-theme="dark"] {
 }
 
 /* ------------------------------------------------------------
-   17. 主题自适应图片
+   17. 主题自适应图片（顶栏/页脚 Logo）
        深色版图片（黑）用于浅色主题，浅色版图片（白）用于深色主题。
        通过两张 <img> 叠放 + CSS 显隐实现：
-       - .img-light：浅色主题显示（深色图，如 nav-logo.png / ir_d.png）
-       - .img-dark ：深色主题显示（浅色图，如 nav-logo-w.png / ir.png）
+       - .img-light：浅色主题显示（深色图，如 nav-logo.png）
+       - .img-dark ：深色主题显示（浅色图，如 nav-logo-w.png）
        置于样式表末尾，保证覆盖各容器中 img 的默认 display。
+       （hero 横幅不参与主题切换，固定使用白色版 ir.png）
    ------------------------------------------------------------ */
 img.img-light { display: block; }
 img.img-dark { display: none; }
