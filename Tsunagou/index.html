@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tsunagou —— 多 Agent 协作调度系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/fontawesome.css">
+</head>
+
+<body>
+    <section class="secMainLeft">
+        <img src="./assets/img/logo.png" />
+        <div class="newBtn"><i class="fa-solid fa-file-circle-plus"></i>创建协作</div>
+        <div class="subMgr">
+        <div class="wkTitle">
+            <div class="wkTleft"><p>进行中的协作</p></div>
+            <div class="wkTright">
+            <div class="wkTbtn"><i class="fa-solid fa-search"></i></div>
+            <div class="wkTbtn"><i class="fa-solid fa-cog"></i></div>
+            </div>
+        </div>
+            <div class="projItem projItemActive projItemSelected">
+                <div class="inner">
+                <p class="title"><i class="fa-solid fa-folder"></i>你好，世界 —— 一种基于Hello World文化的3D游戏开发</p>
+                <div class="content">
+                    <p>当前有5个Agent正在工作</p>
+                    <p>工作中</p>
+                    <p>1970年1月1日创建</p>
+                </div>
+                </div>
+            </div>
+            <div class="projItem projItemActive">
+                <div class="inner">
+                <p class="title"><i class="fa-solid fa-folder"></i>你好，世界 —— 一种基于Hello World文化的3D游戏开发</p>
+                <div class="content">
+                    <p>当前有5个Agent正在工作</p>
+                    <p>工作中</p>
+                    <p>1970年1月1日创建</p>
+                </div>
+                </div>
+            </div>
+        <div class="wkTitle">
+            <div class="wkTleft">已完成的协作</div>
+            <div class="wkTright">
+            <div class="wkTbtn"><i class="fa-solid fa-search"></i></div>
+            <div class="wkTbtn"><i class="fa-solid fa-cog"></i></div>
+            </div>
+        </div>
+            <div class="projItem">
+                <div class="inner">
+                <p class="title"><i class="fa-solid fa-folder"></i>基于二战历史构建的three.js 3D枪战游戏</p>
+                <div class="content">
+                    <p>当前有5个Agent正在工作</p>
+                    <p>工作中</p>
+                    <p>1970年1月1日创建</p>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="btmTabs">
+            <div class="btmTabsTxt">占位符——还不知道放什么</div>
+        </div>
+    </section>
+    <section class="secMainRight">
+        <div class="topArea">
+        <div class="mainArea">
+            <div class="headerArea">
+                <img src="./assets/img/logo-little.png"/>
+                <p>探索未至之境</p>
+            </div>
+            <div class="btnArea">
+                <div class="bigBtn">
+                    <i class="bigBtnIcon fa-solid fa-file-circle-plus"></i>
+                    <p class="bigBtnTxt">创建协作</p>
+                </div>
+                <div class="bigBtn">
+                    <i class="bigBtnIcon fa-solid fa-terminal"></i>
+                    <p class="bigBtnTxt">管理Agent</p>
+                </div>
+                <div class="bigBtn" onclick="openWindow('setPanel')">
+                    <i class="bigBtnIcon fa-solid fa-cog"></i>
+                    <p class="bigBtnTxt">偏好设置</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="bottomArea">
+            <div class="left">
+                <div class="inner">
+                <p><i class="fa-solid fa-terminal"></i>当前所有 Agent</p>
+                <div class="list">                
+                <p>Claude Code<span class="active">工作中</span></p>
+                <p>DeepSeek Harness<span class="rest">空闲</span></p>
+                <p>Code X<span class="offline">离线</span></p>
+                </div>
+                </div>
+            </div>
+            <div class="right">
+                <p></p>
+            </div>
+        </div>
+    </section>
+    <section class="secWindow" id="setPanel">
+        <div class="window">
+            <div class="titleBar">
+                <div class="title"><i class="fa-solid fa-cog"></i> 偏好设置</div>
+                <div class="button" onclick="closeWindow('setPanel')">×</div>
+            </div>
+            <div class="main">
+                <div class="left">
+                    <div class="inner">
+                        <div class="item Active" id="uSet1b" onclick="toSetTab('uSet1')">
+                            <i class="fa-regular fa-user"></i>
+                            <p>个性化设置</p>
+                        </div>
+                        <div class="item NoActive" id="uSet2b" onclick="toSetTab('uSet2')">
+                            <i class="fa-regular fa-folder"></i>
+                            <p>调度数据管理</p>
+                        </div>
+                        <div class="item NoActive" id="uSet3b" onclick="toSetTab('uSet3')">
+                            <i class="fa-solid fa-tags"></i>
+                            <p>关于 Tsunagou</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="inner innerNormal" id="uSet1">
+                        <div class="block">
+                            <p class="title">颜色设置</p>
+                            <div class="items">
+                                <div class="item">
+                                <div class="left">
+                                    <p class="fword">颜色主题</p>
+                                    <p class="sword">切换浅色/深色模式</p>
+                                </div>
+                                <div class="right">
+                                    <div class="choosebox">
+                                        <div class="left">深色</div>
+                                        <div class="right"></div>
+                                    </div>
+                                    <div class="chooseboxOpen" id="uSetCol">
+                                        <p>深色</p>
+                                        <p>浅色</p>
+                                        <p>自动</p>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner" id="uSet2">
+                        
+                        <div class="block">
+                            <p class="title">数据存储</p>
+                            <div class="items">
+                                <div class="item">
+                                <div class="left">
+                                    <p class="fword">调度数据保存地址</p>
+                                    <p class="sword">决定调度数据在本机的保存位置</p>
+                                </div>
+                                <div class="right">
+                                    <div class="textbox">
+                                        <input class="left"/>
+                                        <div class="right">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="block">
+                            <p class="title">数据抹除</p>
+                            <div class="items">
+                                <div class="item">
+                                <div class="left">
+                                    <p class="fword">协作记录自动清空</p>
+                                    <p class="sword">当协作记录超过一定天数未访问时，将其删除</p>
+                                </div>
+                                <div class="right">
+                                    <div class="choosebox">
+                                        <div class="left">永不</div>
+                                        <div class="right"></div>
+                                    </div>
+                                    <div class="chooseboxOpen" id="uSetCol">
+                                        <p>永不</p>
+                                        <p>1天</p>
+                                        <p>7天</p>
+                                        <p>30天</p>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="item">
+                                <div class="left">
+                                    <p class="fword">抹除全部协作数据</p>
+                                    <p class="sword">删除本机的所有协作数据</p>
+                                </div>
+                                <div class="right">
+                                    <div class="buttonbox">清除</div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="inner" id="uSet3">
+                        <div class="block">
+                            <p class="title">测试选项</p>
+                            <div class="items">
+                                <div class="item">
+                                <div class="left">
+                                    <p class="fword">测试操作成功弹窗</p>
+                                    <p class="sword">DEBUG</p>
+                                </div>
+                                <div class="right">
+                                    <div class="buttonbox" onclick="debug()">开始</div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="secAnnounce" id="AnnounceMent">
+        <div class="aIcon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div class="aText">
+            <p class="fword">改动已成功保存.</p>
+            <p class="sword">Tsunagou 2026/09/18</p>
+        </div>
+    </section>
+
+    <script src="./assets/js/behavior.js"></script>
+</body>
+
+</html>
