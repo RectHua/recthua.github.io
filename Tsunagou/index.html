@@ -11,8 +11,10 @@
 
 <body>
     <section class="secMainLeft">
+        <div class="header">
         <img src="./assets/img/logo.png" />
         <div class="newBtn"><i class="fa-solid fa-file-circle-plus"></i>创建协作</div>
+        </div>
         <div class="subMgr">
         <div class="wkTitle">
             <div class="wkTleft"><p>进行中的协作</p></div>
@@ -21,13 +23,27 @@
             <div class="wkTbtn"><i class="fa-solid fa-cog"></i></div>
             </div>
         </div>
-            <div class="projItem projItemActive projItemSelected">
+            <div class="projItem projItemSelected">
                 <div class="inner">
                 <p class="title"><i class="fa-solid fa-folder"></i>你好，世界 —— 一种基于Hello World文化的3D游戏开发</p>
                 <div class="content">
-                    <p>当前有5个Agent正在工作</p>
-                    <p>工作中</p>
-                    <p>1970年1月1日创建</p>
+                    <div class="left">
+                        <div class="mainAgent">
+                            <img src="./assets/img/agent/deepseek-l.png"/>
+                            <p>DeepSeek Harness</p>
+                        </div>
+                        <div class="anotherAgent">
+                            <img src="./assets/img/agent/codex-l.png"/>
+                            <img src="./assets/img/agent/claudecode-l.png"/>
+                            <img src="./assets/img/agent/deepseek-l.png"/>
+                            <img src="./assets/img/agent/codex-l.png"/>
+                            <span class="plus">4</span>
+                        </div>
+                    </div>
+                    <div class="right">
+                    <p class="wking">工作中</p>
+                    <p class="time">1970-1-1 12:00</p>
+                    </div>
                 </div>
                 </div>
             </div>
@@ -35,9 +51,23 @@
                 <div class="inner">
                 <p class="title"><i class="fa-solid fa-folder"></i>你好，世界 —— 一种基于Hello World文化的3D游戏开发</p>
                 <div class="content">
-                    <p>当前有5个Agent正在工作</p>
-                    <p>工作中</p>
-                    <p>1970年1月1日创建</p>
+                    <div class="left">
+                        <div class="mainAgent">
+                            <img src="./assets/img/agent/deepseek-l.png"/>
+                            <p>DeepSeek Harness</p>
+                        </div>
+                        <div class="anotherAgent">
+                            <img src="./assets/img/agent/codex-l.png"/>
+                            <img src="./assets/img/agent/claudecode-l.png"/>
+                            <img src="./assets/img/agent/deepseek-l.png"/>
+                            <img src="./assets/img/agent/codex-l.png"/>
+                            <span class="plus">4</span>
+                        </div>
+                    </div>
+                    <div class="right">
+                    <p class="starting">待开始</p>
+                    <p class="time">1970-1-1 12:00</p>
+                    </div>
                 </div>
                 </div>
             </div>
@@ -50,11 +80,25 @@
         </div>
             <div class="projItem">
                 <div class="inner">
-                <p class="title"><i class="fa-solid fa-folder"></i>基于二战历史构建的three.js 3D枪战游戏</p>
+                <p class="title"><i class="fa-solid fa-folder"></i>你好，世界 —— 一种基于Hello World文化的3D游戏开发</p>
                 <div class="content">
-                    <p>当前有5个Agent正在工作</p>
-                    <p>工作中</p>
-                    <p>1970年1月1日创建</p>
+                    <div class="left">
+                        <div class="mainAgent">
+                            <img src="./assets/img/agent/deepseek-l.png"/>
+                            <p>DeepSeek Harness</p>
+                        </div>
+                        <div class="anotherAgent">
+                            <img src="./assets/img/agent/codex-l.png"/>
+                            <img src="./assets/img/agent/claudecode-l.png"/>
+                            <img src="./assets/img/agent/deepseek-l.png"/>
+                            <img src="./assets/img/agent/codex-l.png"/>
+                            <span class="plus">4</span>
+                        </div>
+                    </div>
+                    <div class="right">
+                    <p class="finished">已完成</p>
+                    <p class="time">1970-1-1 12:00</p>
+                    </div>
                 </div>
                 </div>
             </div>
@@ -68,14 +112,14 @@
         <div class="mainArea">
             <div class="headerArea">
                 <img src="./assets/img/logo-little.png"/>
-                <p>探索未至之境</p>
+                <p>世界因协作而无限</p>
             </div>
             <div class="btnArea">
                 <div class="bigBtn">
                     <i class="bigBtnIcon fa-solid fa-file-circle-plus"></i>
                     <p class="bigBtnTxt">创建协作</p>
                 </div>
-                <div class="bigBtn">
+                <div class="bigBtn" onclick="openWindow('mgrAgent')">
                     <i class="bigBtnIcon fa-solid fa-terminal"></i>
                     <p class="bigBtnTxt">管理Agent</p>
                 </div>
@@ -120,6 +164,10 @@
                             <p>调度数据管理</p>
                         </div>
                         <div class="item NoActive" id="uSet3b" onclick="toSetTab('uSet3')">
+                            <i class="fa-solid fa-tags"></i>
+                            <p>DEBUG 选项</p>
+                        </div>
+                        <div class="item NoActive" id="uSet4b" onclick="toSetTab('uSet4')">
                             <i class="fa-solid fa-tags"></i>
                             <p>关于 Tsunagou</p>
                         </div>
@@ -207,7 +255,7 @@
                     </div>
                     <div class="inner" id="uSet3">
                         <div class="block">
-                            <p class="title">测试选项</p>
+                            <p class="title">DEBUG 选项</p>
                             <div class="items">
                                 <div class="item">
                                 <div class="left">
@@ -221,11 +269,42 @@
                             </div>
                         </div>
                     </div>
+                    <div class="inner" id="uSet4">
+                        <div class="block">
+                            <p class="title">关于 Tsunagou</p>
+                            <div class="items">
+                                <div class="freebox">
+                                    <img src="./assets/img/logo.png"/>
+                                    <p class="center">v0.1.0 Alpha</p>
+                                    <p class="description">Tsunagou 是一个多 Agent 协作调度系统，旨在通过文档交换、契约更新、权限管理等调度机制，解决多个 Agent 在同一项目上共同协作时产生的冲突，使他们能够“看见彼此”、像人类一样协作，从而提升效率。</p>
+                                    <p class="description">前端:陈林榕；后端:骆宣卓；测试:张子宸</p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <section class="secWindow" id="mgrAgent">
+        <div class="window">
+            <div class="titleBar">
+                <div class="title"><i class="fa-solid fa-cog"></i> Agent 管理</div>
+                <div class="button" onclick="closeWindow('mgrAgent')">×</div>
+            </div>
+            <div class="main">
+                <div class="table">
+                    <div class="item">
+                        <div class="title"><img src="./assets/img/agent/deepseek-l.png"/>DeepSeek Harness</div>
+                        <div class="content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section class="secAnnounce" id="AnnounceMent">
         <div class="aIcon">
             <i class="fa-solid fa-check"></i>

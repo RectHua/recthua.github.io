@@ -11,7 +11,7 @@ function closeWindow(id) {
 }
 
 function toSetTab(id) {
-    for (let i = 1; i < 4; i++) {
+    for (let i = 1; i < 5; i++) {
         getDiv('uSet' + i).style.display = 'none';
         getDiv('uSet' + i + 'b').classList.remove('Active');
         getDiv('uSet' + i + 'b').classList.add('NoActive');
@@ -184,7 +184,7 @@ async function run() {
 run();
 
 async function debug() {
-    getDiv('AnnounceMent').style.transform = 'translateX(0%)';
+    getDiv('AnnounceMent').style.right = '30px';
     await sleep(2000);
-    getDiv('AnnounceMent').style.transform = 'translateX(120%)';
+    getDiv('AnnounceMent').style.right = '-300px';
 }
