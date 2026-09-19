@@ -4,19 +4,27 @@ function getDiv(id) {
 
 function openWindow(id) {
     getDiv(id).style.display = 'flex';
+    void getDiv(id).offsetWidth;
+    getDiv(id).style.opacity='1';
 }
 
 function closeWindow(id) {
+    void getDiv(id).offsetWidth;
+    getDiv(id).style.opacity = '0';
     getDiv(id).style.display = 'none';
 }
 
 function toSetTab(id) {
     for (let i = 1; i < 5; i++) {
         getDiv('uSet' + i).style.display = 'none';
+    void getDiv(id).offsetWidth;
+    getDiv(id).style.opacity = '0';
         getDiv('uSet' + i + 'b').classList.remove('Active');
         getDiv('uSet' + i + 'b').classList.add('NoActive');
     }
     getDiv(id).style.display = 'flex';
+    void getDiv(id).offsetWidth;
+    getDiv(id).style.opacity = '1';
     getDiv(id + 'b').classList.remove('NoActive');
     getDiv(id + 'b').classList.add('Active');
 }
@@ -175,16 +183,34 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function run() {
-  console.log('开始');
-  await sleep(1000);
-  console.log('1 秒后继续');
-}
-
-run();
-
 async function debug() {
     getDiv('AnnounceMent').style.right = '30px';
+    getDiv('secApgr').classList.add('Active');
     await sleep(2000);
     getDiv('AnnounceMent').style.right = '-300px';
+    getDiv('secApgr').classList.remove('Active');
+}
+
+function mgrAgentDB() {
+    getDiv('agentMgrRight').style.display = 'none';
+    getDiv('agentMgrPlgRight').style.display = 'flex';
+    const container = document.querySelector('.some-container');
+    const items = document.querySelectorAll('.table .item .edit');
+    items.forEach((el) => {
+        el.offsetWidth;
+        el.style.right='0';
+        el.style.top='0';
+    });
+}
+
+function mgrAgentDDB() {
+    getDiv('agentMgrPlgRight').style.display = 'none';
+    getDiv('agentMgrRight').style.display = 'flex';
+    const container = document.querySelector('.some-container');
+    const items = document.querySelectorAll('.table .item .edit');
+    items.forEach((el) => {
+        el.style.right='-40px';
+        el.style.top='-40px';
+        el.offsetWidth;
+    });
 }

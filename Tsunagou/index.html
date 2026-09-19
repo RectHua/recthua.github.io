@@ -142,7 +142,7 @@
                     <div class="list">
                         <p>Claude Code<span class="active">工作中</span></p>
                         <p>DeepSeek Harness<span class="rest">空闲</span></p>
-                        <p>Code X<span class="offline">离线</span></p>
+                        <p>Codex<span class="offline">离线</span></p>
                     </div>
                 </div>
             </div>
@@ -152,7 +152,7 @@
         </div>
     </section>
     <section class="secWindow" id="setPanel">
-        <div class="window">
+        <div class="window1">
             <div class="titleBar">
                 <div class="title"><i class="fa-solid fa-cog"></i> 偏好设置</div>
                 <div class="button" onclick="closeWindow('setPanel')">×</div>
@@ -180,7 +180,7 @@
                 </div>
                 <div class="right">
                     <div class="inner innerNormal" id="uSet1">
-                        <div class="block">
+                        <div class="uiBlock">
                             <p class="title">颜色设置</p>
                             <div class="items">
                                 <div class="item">
@@ -205,7 +205,7 @@
                     </div>
                     <div class="inner" id="uSet2">
 
-                        <div class="block">
+                        <div class="uiBlock">
                             <p class="title">数据存储</p>
                             <div class="items">
                                 <div class="item">
@@ -224,7 +224,7 @@
                             </div>
                         </div>
 
-                        <div class="block">
+                        <div class="uiBlock">
                             <p class="title">数据抹除</p>
                             <div class="items">
                                 <div class="item">
@@ -259,7 +259,7 @@
 
                     </div>
                     <div class="inner" id="uSet3">
-                        <div class="block">
+                        <div class="uiBlock">
                             <p class="title">DEBUG 选项</p>
                             <div class="items">
                                 <div class="item">
@@ -275,7 +275,7 @@
                         </div>
                     </div>
                     <div class="inner" id="uSet4">
-                        <div class="block">
+                        <div class="uiBlock">
                             <p class="title">关于 Tsunagou</p>
                             <div class="items">
                                 <div class="freebox">
@@ -295,7 +295,7 @@
     </section>
 
     <section class="secWindow" id="mgrAgent">
-        <div class="window">
+        <div class="window1">
             <div class="titleBar">
                 <div class="title"><i class="fa-solid fa-cog"></i> Agent 管理</div>
                 <div class="button" onclick="closeWindow('mgrAgent')">×</div>
@@ -303,108 +303,255 @@
             <div class="main">
                 <div class="inner">
                     <div class="title">
-                        <span class="left">共5个Agent · 3个Agent在线 · 2个Agent工作中</span>
-                        <div class="right">
-                            <div class="buttonbox">增加</div>
-                            <div class="buttonbox">批量管理</div>
+                        <span class="left">共5个Agent ， 3个Agent在线 ， 2个Agent工作中</span>
+                        <div class="right" id="agentMgrRight">
+                            <div class="buttonbox" onclick="openWindow('addAgent')">增加</div>
+                            <div class="buttonbox" onclick="mgrAgentDB()">批量管理</div>
+                        </div>
+                        <div class="right plgRight" id="agentMgrPlgRight">
+                            <div class="buttonbox" onclick="mgrAgentDDB()">取消</div>
+                            <div class="buttonbox" onclick="openWindow('delPmt')">删除</div>
                         </div>
                     </div>
-                    <div class="table">
-                    
-                    <div class="item active">
-                        <div class="title"><img src="./assets/img/agent/deepseek-l.png" />DeepSeek Harness</div>
-                        <div class="content">
-                            <div class="apiBlock">
-                                <div class="left">API</div>
-                                <div class="right">127.0.0.1:65535</div>
-                            </div>
-                            <div class="option">
-                                <div class="left">工作中</div>
-                                <div class="right">
-                                    <i class="fa-solid fa-edit"></i>
-
+                    <div class="table">                    
+                        <div class="item active">
+                            <div class="title"><img src="./assets/img/agent/deepseek-l.png" />DeepSeek Harness</div>
+                            <div class="content">
+                                <div class="apiBlock">
+                                    <div class="left">API</div>
+                                    <div class="right">127.0.0.1:65535</div>
+                                </div>
+                                <div class="option">
+                                    <div class="left">工作中</div>
+                                    <div class="right" onclick="openWindow('mgrAgentEdit')">
+                                        <i class="fa-solid fa-edit"></i>
+                                    </div>
                                 </div>
                             </div>
+                            <span class="edit"></span>
                         </div>
-                    </div>
-                    <div class="item active">
-                        <div class="title"><img src="./assets/img/agent/claudecode-l.png" />Claude Code</div>
-                        <div class="content">
-                            <div class="apiBlock">
-                                <div class="left">API</div>
-                                <div class="right">127.0.0.1:65534</div>
-                            </div>
-                            <div class="option">
-                                <div class="left">工作中</div>
-                                <div class="right">
-                                    <i class="fa-solid fa-edit"></i>
-
+                        <div class="item active">
+                            <div class="title"><img src="./assets/img/agent/claudecode-l.png" />Claude Code</div>
+                            <div class="content">
+                                <div class="apiBlock">
+                                    <div class="left">API</div>
+                                    <div class="right">127.0.0.1:65534</div>
+                                </div>
+                                <div class="option">
+                                    <div class="left">工作中</div>
+                                    <div class="right">
+                                        <i class="fa-solid fa-edit"></i>
+    
+                                    </div>
                                 </div>
                             </div>
+                            <span class="edit"></span>
                         </div>
-                    </div>
-                    <div class="item free">
-                        <div class="title"><img src="./assets/img/agent/claudecode-l.png" />Claude Code 2</div>
-                        <div class="content">
-                            <div class="apiBlock">
-                                <div class="left">API</div>
-                                <div class="right">127.0.0.1:65534</div>
-                            </div>
-                            <div class="option">
-                                <div class="left">空闲</div>
-                                <div class="right">
-                                    <i class="fa-solid fa-edit"></i>
-
+                        <div class="item free">
+                            <div class="title"><img src="./assets/img/agent/claudecode-l.png" />Claude Code 2</div>
+                            <div class="content">
+                                <div class="apiBlock">
+                                    <div class="left">API</div>
+                                    <div class="right">127.0.0.1:65534</div>
+                                </div>
+                                <div class="option">
+                                    <div class="left">空闲</div>
+                                    <div class="right">
+                                        <i class="fa-solid fa-edit"></i>
+    
+                                    </div>
                                 </div>
                             </div>
+                            <span class="edit"></span>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="title"><img src="./assets/img/agent/claudecode-l.png" />Claude Code 2</div>
-                        <div class="content">
-                            <div class="apiBlock">
-                                <div class="left">API</div>
-                                <div class="right">127.0.0.1:65534</div>
-                            </div>
-                            <div class="option">
-                                <div class="left">离线</div>
-                                <div class="right">
-                                    <i class="fa-solid fa-edit"></i>
-
+                        <div class="item">
+                            <div class="title"><img src="./assets/img/agent/claudecode-l.png" />Claude Code 2</div>
+                            <div class="content">
+                                <div class="apiBlock">
+                                    <div class="left">API</div>
+                                    <div class="right">127.0.0.1:65534</div>
+                                </div>
+                                <div class="option">
+                                    <div class="left">离线</div>
+                                    <div class="right">
+                                        <i class="fa-solid fa-edit"></i>
+    
+                                    </div>
                                 </div>
                             </div>
+                            <span class="edit"></span>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="title"><img src="./assets/img/agent/claudecode-l.png" />Claude Code 2</div>
-                        <div class="content">
-                            <div class="apiBlock">
-                                <div class="left">API</div>
-                                <div class="right">127.0.0.1:65534</div>
-                            </div>
-                            <div class="option">
-                                <div class="left">离线</div>
-                                <div class="right">
-                                    <i class="fa-solid fa-edit"></i>
-
+                        <div class="item">
+                            <div class="title"><img src="./assets/img/agent/claudecode-l.png" />Claude Code 2</div>
+                            <div class="content">
+                                <div class="apiBlock">
+                                    <div class="left">API</div>
+                                    <div class="right">127.0.0.1:65534</div>
+                                </div>
+                                <div class="option">
+                                    <div class="left">离线</div>
+                                    <div class="right">
+                                        <i class="fa-solid fa-edit"></i>
+    
+                                    </div>
                                 </div>
                             </div>
+                            <span class="edit"></span>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
     </section>
+    <section class="secWindow" id="mgrAgentEdit">
+        <div class="window2">
+            <div class="titleBar">
+                <div class="title"><i class="fa-solid fa-cog"></i> 修改 Agent 信息</div>
+                <div class="button" onclick="closeWindow('mgrAgentEdit')">×</div>
+            </div>
+            <div class="content">
+                <div class="uiBlock">
+                    <div class="items">
+                        <div class="item">
+                                    <div class="left">
+                                        <p class="fword">Agent 名称</p>
+                                        <p class="sword">为你的 Agent 设置一个名称</p>
+                                    </div>
+                                    <div class="right">
+                                        <div class="textbox">
+                                            <input class="left" />
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="item">
+                                    <div class="left">
+                                        <p class="fword">Agent 图标</p>
+                                        <p class="sword">根据你的喜好修改 Agent 图标</p>
+                                    </div>
+                                    <div class="right">
+                                        <div class="choosebox">
+                                            <div class="left">DeepSeek</div>
+                                            <div class="right"></div>
+                                        </div>
+                                        <div class="chooseboxOpen" id="uSetCol">
+                                            <p>DeepSeek</p>
+                                            <p>Claude Code</p>
+                                            <p>Codex</p>
+                                            <p>Tsunagou</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="item">
+                                    <div class="left">
+                                        <p class="fword">API 地址</p>
+                                        <p class="sword">输入 API 地址以允许 Agent 接入</p>
+                                    </div>
+                                    <div class="right">
+                                        <div class="textbox">
+                                            <input class="left" />
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="options">
+                <div class="buttonbox2" onclick="closeWindow('mgrAgentEdit')">取消</div>
+                <div class="buttonbox2 buttonbox2active">确定</div>
+            </div>
+        </div>
+    </section>
 
+    <section class="secWindow" id="addAgent">
+        <div class="window2">
+            <div class="titleBar">
+                <div class="title"><i class="fa-solid fa-cog"></i> 添加 Agent</div>
+                <div class="button" onclick="closeWindow('addAgent')">×</div>
+            </div>
+            <div class="content">
+                <div class="uiBlock">
+                    <div class="items">
+                        <div class="item">
+                                    <div class="left">
+                                        <p class="fword">Agent 名称</p>
+                                        <p class="sword">为你的 Agent 设置一个名称</p>
+                                    </div>
+                                    <div class="right">
+                                        <div class="textbox">
+                                            <input class="left" />
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="item">
+                                    <div class="left">
+                                        <p class="fword">Agent 图标</p>
+                                        <p class="sword">根据你的喜好修改 Agent 图标</p>
+                                    </div>
+                                    <div class="right">
+                                        <div class="choosebox">
+                                            <div class="left">DeepSeek</div>
+                                            <div class="right"></div>
+                                        </div>
+                                        <div class="chooseboxOpen" id="uSetCol">
+                                            <p>DeepSeek</p>
+                                            <p>Claude Code</p>
+                                            <p>Codex</p>
+                                            <p>Tsunagou</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="item">
+                                    <div class="left">
+                                        <p class="fword">API 地址</p>
+                                        <p class="sword">输入 API 地址以允许 Agent 接入</p>
+                                    </div>
+                                    <div class="right">
+                                        <div class="textbox">
+                                            <input class="left" />
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="options">
+                <div class="buttonbox2" onclick="closeWindow('addAgent')">取消</div>
+                <div class="buttonbox2 buttonbox2active">确定</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="secWindow" id="delPmt">
+        <div class="window3">
+            <div class="titleBar">
+                <div class="title">删除 Agent</div>
+                <div class="button" onclick="closeWindow('delPmt')">×</div>
+            </div>
+            <div class="content">
+                <div class="left"><i class="fa-solid fa-circle-exclamation"></i></div>
+                <div class="right">
+                <p class="bigTxt">确定要删除这几个 Agent 吗？</p>
+                <p class="description">此操作不可挽回，请务必考虑清楚。</p>
+                </div>
+            </div>
+            <div class="options">
+                <div class="buttonbox2" onclick="closeWindow('delPmt')">取消</div>
+                <div class="buttonbox2 buttonbox2active">确定</div>
+            </div>
+        </div>
+    </section>
+    
     <section class="secAnnounce" id="AnnounceMent">
+        <div class="top">
         <div class="aIcon">
             <i class="fa-solid fa-check"></i>
         </div>
         <div class="aText">
-            <p class="fword">改动已成功保存.</p>
+            <p class="fword">改动已成功保存</p>
             <p class="sword">Tsunagou 2026/09/18</p>
         </div>
+        </div>
+        <div class="bottom" id="secApgr"></div>
     </section>
 
     <script src="./assets/js/behavior.js"></script>
