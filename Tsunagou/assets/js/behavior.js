@@ -1,3 +1,28 @@
+// 统一用事件委托，动态添加的选择框也能直接生效
+document.addEventListener('click', (e) => {
+    const option = e.target.closest('.chooseboxOpen p');
+    if (option) {
+        selectCsOption(option);
+        return;
+    }
+    const inPanel = e.target.closest('.chooseboxOpen');
+    const box = e.target.closest('.choosebox');
+    if (box && !inPanel) {
+        toggleCsBox(findCsPanel(box));
+        return;
+    }
+    if (inPanel) return; // 点在面板空白处不收起
+    closeAllCsBox();     // 点击其它任意位置收起
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAllCsBox();
+});
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function getDiv(id) {
     return document.getElementById(id);
 }
@@ -28,6 +53,53 @@ function toSetTab(id) {
     getDiv(id + 'b').classList.remove('NoActive');
     getDiv(id + 'b').classList.add('Active');
 }
+
+/* ============================================================
+ * 新建协作向导（#addProj）
+ * 约定结构：
+ *     <div class="right" id="newXzN">…</div>   步骤 N 的内容
+ *     <div class="options" id="xzN">…</div>    步骤 N 的按钮组
+ * 同一时刻只显示其中一组，用 toNewXz(N) 切换（N 从 1 开始）。
+ * 面板与按钮组一一对应，增删步骤只需保证 id 编号连续，
+ * 并同步修改下面的 NEWXZ_STEPS。
+ * ============================================================ */
+
+const NEWXZ_STEPS = 4; // 向导总步数（与 index.html 中 newXzN / xzN 的最大编号一致）
+let newXzCur = 1;      // 当前所在步骤
+
+// 切换到第 step 步，超出范围时自动收敛到首/尾步，不会越界
+function toNewXz(step) {
+    newXzCur = Math.min(Math.max(step, 1), NEWXZ_STEPS);
+    for (let i = 1; i <= NEWXZ_STEPS; i++) {
+        const active = (i === newXzCur);
+        const display = active ? 'flex' : 'none';
+        // 内容面板 newXz：display 为 none 时 opacity 为 0，否则为 1
+        const panel = getDiv('newXz' + i);
+        panel.style.display = display;
+        void panel.offsetWidth;
+        panel.style.opacity = active ? '1' : '0';
+        // 按钮组 xz：只切换显示状态
+        getDiv('xz' + i).style.display = display;
+    }
+}
+
+// 上一步 / 下一步（已在首步或末步时原地不动）
+function newXzPrev() {
+    toNewXz(newXzCur - 1);
+}
+
+function newXzNext() {
+    toNewXz(newXzCur + 1);
+}
+
+// 完成：关闭窗口，并把向导重置回第一步，方便下次打开
+async function newXzFinish() {
+    closeWindow('addProj');
+    await sleep(200);
+    toNewXz(1);
+}
+
+toNewXz(1); // 初始化：默认停在第一步
 
 /* ============================================================
  * 下拉选择框 choosebox —— 通用实现，页面中可复用任意多个
@@ -158,30 +230,7 @@ function selectCsOption(option) {
     }
 }
 
-// 统一用事件委托，动态添加的选择框也能直接生效
-document.addEventListener('click', (e) => {
-    const option = e.target.closest('.chooseboxOpen p');
-    if (option) {
-        selectCsOption(option);
-        return;
-    }
-    const inPanel = e.target.closest('.chooseboxOpen');
-    const box = e.target.closest('.choosebox');
-    if (box && !inPanel) {
-        toggleCsBox(findCsPanel(box));
-        return;
-    }
-    if (inPanel) return; // 点在面板空白处不收起
-    closeAllCsBox();     // 点击其它任意位置收起
-});
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeAllCsBox();
-});
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 async function debug() {
     getDiv('AnnounceMent').style.right = '30px';
@@ -189,6 +238,12 @@ async function debug() {
     await sleep(2000);
     getDiv('AnnounceMent').style.right = '-300px';
     getDiv('secApgr').classList.remove('Active');
+}
+
+async function debug2() {
+    getDiv('AnnounceMent2').style.top = '30px';
+    await sleep(2000);
+    getDiv('AnnounceMent2').style.top = '-100px';
 }
 
 function mgrAgentDB() {
