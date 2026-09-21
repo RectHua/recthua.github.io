@@ -269,3 +269,71 @@ function mgrAgentDDB() {
         el.offsetWidth;
     });
 }
+
+/* 主题配图：白色版文件名以 -l 结尾、深色版以 -d 结尾，成对存在
+   （如 logo-l.png / logo-d.png、agent/deepseek-l.png / deepseek-d.png） */
+function applyThemeImages(light) {
+    const suffix = light ? '-d.png' : '-l.png';
+    document.querySelectorAll('img').forEach((img) => {
+        const src = img.getAttribute('src');
+        if (!src || !/-[ld]\.png$/i.test(src)) return; // 只处理成对的 -l / -d 图，其余图片不动
+        img.setAttribute('src', src.replace(/-[ld]\.png$/i, suffix));
+    });
+}
+
+/* ============================================================
+ * 颜色主题 —— 浅色模式
+ * 只做两件事：把 :root 上的颜色变量改写成目标主题的色值，
+ * 并把成对的配图切成对应版本（-l / -d）；
+ * 不新增/修改任何 CSS，也不依赖任何 HTML 结构改动。
+ * 深色的色值 = style.css 中 :root 的原始值（保证来回切换不失真）；
+ * 浅色 = 明暗反相，且各变量之间的深浅次序与深色保持一致。
+ * 挂载：监听 choosebox 的 choosebox:change 事件（设置窗口 #uSet1 内的主题下拉框）。
+ * ============================================================ */
+function setColorTheme(mode) {
+    const THEME_VARS = {
+        /* 深色（与 style.css 的 :root 原始值一致） */
+        dark: {
+            '--col-1': '#151517',
+            '--col-1-a': '#1515178a',
+            '--col-1-5': '#1a1a1a',
+            '--col-2': '#1D1D1F',
+            '--col-3': '#2C2C2E',
+            '--col-4': '#303435',
+            '--col-4-5': '#404040',
+            '--col-5': '#595959',
+            '--col-6': '#999999',
+            '--col-7': '#C9C9C9',
+            '--col-7-5': '#E4E4E4',
+            '--col-8': 'white'
+        },
+        /* 浅色（背景与文字整体反相） */
+        light: {
+            '--col-1': '#FFFFFF',   // 主区背景
+            '--col-1-a': '#FFFFFFB3', // 窗口遮罩
+            '--col-1-5': '#E8E8EC', // 阴影
+            '--col-2': '#F4F4F7',   // 侧边栏背景
+            '--col-3': '#E9E9EE',   // 卡片 / 窗口背景
+            '--col-4': '#DFDFE5',
+            '--col-4-5': '#D6D6DD', // 下拉面板 / 悬停底色
+            '--col-5': '#B9B9C1',   // 控件底色 / 弱化文字
+            '--col-6': '#7C7C85',   // 次要文字
+            '--col-7': '#414149',   // 正文
+            '--col-7-5': '#1F1F26', // 标题 / 强调文字
+            '--col-8': '#111114'    // 主文字
+        }
+    };
+    // “自动”跟随系统偏好，其余按深色处理
+    const sysLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const name = (mode === '浅色' || (mode === '自动' && sysLight)) ? 'light' : 'dark';
+    const style = document.documentElement.style;
+    for (const key in THEME_VARS[name]) {
+        style.setProperty(key, THEME_VARS[name][key]);
+    }
+    applyThemeImages(name === 'light'); // 配图同步切换 -l / -d
+}
+
+// 设置窗口 #uSet1 中的“颜色主题”下拉框选中后，按选项文本切换主题
+document.addEventListener('choosebox:change', (e) => {
+    if (e.detail.panel && e.detail.panel.closest('#uSet1')) setColorTheme(e.detail.value);
+});
