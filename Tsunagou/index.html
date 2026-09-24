@@ -11,9 +11,14 @@
 
 <body>
     <!--侧边栏-->
-    <section class="secMainLeft">
+    <section class="secAside" id="secAside-Wide">
         <div class="header">
-            <img src="./assets/img/logo-l.png" />
+            <div class="topper">
+                <img src="./assets/img/logo-l.png" />
+                <div class="sdBtn" onclick="sidebarToNarrow()">
+                    <i class="fa-solid fa-angle-left"></i>
+                </div>
+            </div>
             <div class="newBtn" onclick="openWindow('addProj')"><i class="fa-solid fa-file-circle-plus"></i>创建协作</div>
         </div>
         <div class="subMgr">
@@ -51,8 +56,8 @@
                     <span class="edit"></span>
                 </div>
             </div>
-            <div class="projItem projItemActive">
-                <div class="inner">
+            <div class="projItem">
+                <div class="inner" onclick="openProj()">
                     <p class="title">你好，世界 —— 一种基于Hello World文化的3D游戏开发</p>
                     <div class="content">
                         <div class="left">
@@ -85,7 +90,7 @@
             </div>
             <div class="projItem">
                 <div class="inner">
-                    <p class="title">你好，世界 —— 一种基于Hello World文化的3D游戏开发</p>
+                    <p class="title">你好，世界——一种基于Hello World文化的3D游戏开发</p>
                     <div class="content">
                         <div class="left">
                             <div class="mainAgent">
@@ -110,12 +115,31 @@
             </div>
         </div>
         <div class="btmTabs">
-            <div class="btmTabsTxt">占位符——还不知道放什么</div>
+            <div class="btmBtn" onclick="openWindow('mgrAgent')">
+                <i class="fa-solid fa-terminal"></i>
+                <p>Agent列表</p>
+            </div>
+            <div class="btmBtn" onclick="openWindow('setPanel')">
+                <i class="fa-solid fa-cog"></i>
+                <p>系统设置</p>
+            </div>
         </div>
     </section>
 
-    <!--工作区-->
-    <section class="secMainRight">
+    <section class="secAsideFolded" id="secAside-Narrow">
+        <div class="topArea">
+            <img class="foldImg" src="./assets/img/logo-little-l.png" />
+            <div class="foldBtn" onclick="openWindow('addProj')"><i class="fa-solid fa-file-circle-plus"></i></div>
+            <div class="foldBtn" onclick="sidebarToWide()"><i class="fa-solid fa-angle-right"></i></div>
+        </div>
+        <div class="bottomArea">
+            <div class="foldBtn" onclick="openWindow('mgrAgent')"><i class="fa-solid fa-terminal"></i></div>
+            <div class="foldBtn" onclick="openWindow('setPanel')"><i class="fa-solid fa-cog"></i></div>
+        </div>
+    </section>
+
+    <!--初始工作区-->
+    <section class="secHome">
         <div class="topArea">
             <div class="mainArea">
                 <div class="headerArea">
@@ -144,6 +168,592 @@
             </div>
             <div class="right">
                 <p>Tsunagou v0.1.0 beta</p>
+            </div>
+        </div>
+    </section>
+
+    <!--项目工作区-->
+    <section class="secProjPanel">
+        <div class="navArea">
+            <div class="left">
+                <p>你好,世界——一种基于Hello World文化的3D游戏开发</p>
+                <div class="status">工作中</div>
+            </div>
+            <div class="right"></div>
+        </div>
+        <div class="tabArea">
+            <div class="tabS tabSactive">主视图</div>
+            <div class="tabS">我的收件箱</div>
+            <div class="tabS">Agent 管理</div>
+            <div class="tabS">任务区</div>
+            <div class="tabS">冲突与协商</div>
+            <div class="tabS">意图与权限审计</div>
+            <div class="tabS">工作区与改动</div>
+            <div class="tabS">完成与存档点</div>
+            <div class="tabS">总路径</div>
+        </div>
+        <div class="inner">
+            <div class="tabMain tabMainNormal">
+                <p class="title">主视图</p>
+                <p class="title2">项目名称/描述</p>
+                <div class="bgTxt">你好,世界——一种基于Hello World文化的3D游戏开发</div>
+                <p class="textArea">
+                    嗟夫！予尝求古仁人之心，或异二者之为，何哉？不以物喜，不以己悲；居庙堂之高则忧其民；处江湖之远则忧其君。是进亦忧，退亦忧。然则何时而乐耶？其必曰：先天下之忧而忧，后天下之乐而乐乎！噫！微斯人，吾谁与归？时六年九月十五日。
+                </p>
+                <p class="title2">基本信息</p>
+                <div class="dataArea">
+                    <div class="table">
+                        <div class="item">
+                            <div class="itemTh">项目状态</div>
+                            <div class="itemTd itemTdActive">工作中</div>
+                        </div>
+                        <div class="item">
+                            <div class="itemTh">协调仓库</div>
+                            <div class="itemTd">E:\HelloWorld\Tsunagou</div>
+                        </div>
+                        <div class="item">
+                            <div class="itemTh">创建时间</div>
+                            <div class="itemTd">2026年9月22日</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="title2">项目进度</p>
+                <div class="dataArea">
+                    <div class="statbox">
+                        <div class="left">
+                            <p class="title">总进度</p>
+                            12%
+                        </div>
+                        <div class="right">
+                            <p class="title">计划进度</p>
+                            <div class="inner">
+                                <div class="task taskF">确定全局会话</div>
+                                <div class="task taskF">确定全局会话</div>
+                                <div class="task taskD">确定全局会话</div>
+                                <div class="task">确定全局会话</div>
+                                <div class="task">确定全局会话</div>
+                                <div class="task">确定全局会话</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dataArea">
+                    <div class="table">
+                        <div class="item">
+                            <div class="itemTh">代码版本</div>
+                            <div class="itemTd">9月22日21:53的代码快照</div>
+                        </div>
+                        <div class="item">
+                            <div class="itemTh">协议版本</div>
+                            <div class="itemTd">第 1 版</div>
+                        </div>
+
+                        <div class="item">
+                            <div class="itemTh">项目版本</div>
+                            <div class="itemTd">第 7 次修订</div>
+                        </div>
+                        <div class="item">
+                            <div class="itemTh">最近存档点</div>
+                            <div class="itemTd">9月22日21:53的存档点</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="title2">项目数据存储</p>
+                <div class="dataArea">
+                    <div class="table">
+                        <div class="item">
+                            <div class="itemTh">项目基础信息</div>
+                            <div class="itemTd">.tsunagou/project.json</div>
+                        </div>
+                        <div class="item">
+                            <div class="itemTh">存档点</div>
+                            <div class="itemTd">.tsunagou/checkpoints/</div>
+                        </div>
+                        <div class="item">
+                            <div class="itemTh">数据库/授权/票据/日志</div>
+                            <div class="itemTd">.tsunagou/local/</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabMain">
+                <p class="title">我的收件箱</p>
+                <p class="title2">
+                    需要你处理/授权的信息
+                </p>
+                <div class="tablebox">
+                    <div class="th">
+                        <div class="colu">问题</div>
+                        <div class="colu colu-l">详情</div>
+                        <div class="colu colu-m">提出 Agent</div>
+                        <div class="colu">操作</div>
+                    </div>
+                    <div class="tr">
+                        <div class="colu lev-active">接口未约定</div>
+                        <div class="colu colu-l">
+                            <div class="colu-t">
+                                <div class="citem1">位于printf()中的接口未约定</div>
+                                <div class="citem2">
+                                    VisualBasic.OnErrorResumeNext.Interrupt="None";UserSelection="always"</div>
+                            </div>
+                        </div>
+                        <div class="colu colu-m">
+                            <div class="colu-t">
+                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem2">9/24 22:00</div>
+                            </div>
+                        </div>
+                        <div class="colu">
+                            <div class="buttonbox">去处理</div>
+                        </div>
+                    </div>
+                    <div class="tr">
+                        <div class="colu lev-active">接口未约定</div>
+                        <div class="colu colu-l">
+                            <div class="colu-t">
+                                <div class="citem1">位于printf()中的接口未约定</div>
+                                <div class="citem2">
+                                    VisualBasic.OnErrorResumeNext.Interrupt="None";UserSelection="always"</div>
+                            </div>
+                        </div>
+                        <div class="colu colu-m">
+                            <div class="colu-t">
+                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem2">9/24 22:00</div>
+                            </div>
+                        </div>
+                        <div class="colu">
+                            <div class="buttonbox">去处理</div>
+                        </div>
+                    </div>
+                    <div class="tr">
+                        <div class="colu lev-active">接口未约定</div>
+                        <div class="colu colu-l">
+                            <div class="colu-t">
+                                <div class="citem1">位于printf()中的接口未约定</div>
+                                <div class="citem2">
+                                    VisualBasic.OnErrorResumeNext.Interrupt="None";UserSelection="always"</div>
+                            </div>
+                        </div>
+                        <div class="colu colu-m">
+                            <div class="colu-t">
+                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem2">9/24 22:00</div>
+                            </div>
+                        </div>
+                        <div class="colu">
+                            <div class="buttonbox">去处理</div>
+                        </div>
+                    </div>
+                    <div class="tr">
+                        <div class="colu lev-active">接口未约定</div>
+                        <div class="colu colu-l">
+                            <div class="colu-t">
+                                <div class="citem1">位于printf()中的接口未约定</div>
+                                <div class="citem2">
+                                    VisualBasic.OnErrorResumeNext.Interrupt="None";UserSelection="always"</div>
+                            </div>
+                        </div>
+                        <div class="colu colu-m">
+                            <div class="colu-t">
+                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem2">9/24 22:00</div>
+                            </div>
+                        </div>
+                        <div class="colu">
+                            <div class="buttonbox">去处理</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="title2">
+                    你已经处理完的信息
+                </p>
+                <div class="tablebox">
+                    <div class="th">
+                        <div class="colu">问题</div>
+                        <div class="colu colu-l">详情</div>
+                        <div class="colu colu-m">提出 Agent</div>
+                        <div class="colu">操作</div>
+                    </div>
+                    <div class="tr">
+                        <div class="colu lev-active">接口未约定</div>
+                        <div class="colu colu-l">
+                            <div class="colu-t">
+                                <div class="citem1">位于printf()中的接口未约定</div>
+                                <div class="citem2">
+                                    VisualBasic.OnErrorResumeNext.Interrupt="None";UserSelection="always"</div>
+                            </div>
+                        </div>
+                        <div class="colu colu-m">
+                            <div class="colu-t">
+                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem2">9/24 22:00</div>
+                            </div>
+                        </div>
+                        <div class="colu">
+                            <div class="buttonbox">撤销</div>
+                        </div>
+                    </div>
+                    <div class="tr">
+                        <div class="colu lev-active">接口未约定</div>
+                        <div class="colu colu-l">
+                            <div class="colu-t">
+                                <div class="citem1">位于printf()中的接口未约定</div>
+                                <div class="citem2">
+                                    VisualBasic.OnErrorResumeNext.Interrupt="None";UserSelection="always"</div>
+                            </div>
+                        </div>
+                        <div class="colu colu-m">
+                            <div class="colu-t">
+                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem2">9/24 22:00</div>
+                            </div>
+                        </div>
+                        <div class="colu">
+                            <div class="buttonbox">撤销</div>
+                        </div>
+                    </div>
+                    <div class="tr">
+                        <div class="colu lev-active">接口未约定</div>
+                        <div class="colu colu-l">
+                            <div class="colu-t">
+                                <div class="citem1">位于printf()中的接口未约定</div>
+                                <div class="citem2">
+                                    VisualBasic.OnErrorResumeNext.Interrupt="None";UserSelection="always"</div>
+                            </div>
+                        </div>
+                        <div class="colu colu-m">
+                            <div class="colu-t">
+                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem2">9/24 22:00</div>
+                            </div>
+                        </div>
+                        <div class="colu">
+                            <div class="buttonbox">撤销</div>
+                        </div>
+                    </div>
+                    <div class="tr">
+                        <div class="colu lev-active">接口未约定</div>
+                        <div class="colu colu-l">
+                            <div class="colu-t">
+                                <div class="citem1">位于printf()中的接口未约定</div>
+                                <div class="citem2">
+                                    VisualBasic.OnErrorResumeNext.Interrupt="None";UserSelection="always"</div>
+                            </div>
+                        </div>
+                        <div class="colu colu-m">
+                            <div class="colu-t">
+                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem2">9/24 22:00</div>
+                            </div>
+                        </div>
+                        <div class="colu">
+                            <div class="buttonbox">撤销</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="asideMain" id="asideMainProj">
+                <div class="title">
+                    <div class="left">
+                        <i class="fa-solid fa-file-word"></i>
+                        <p>详细信息</p>
+                    </div>
+                    <div class="right">×</div>
+                </div>
+                <div class="content">
+                    <div class="title">问题</div>
+                    <div class="textN">接口未约定</div>
+                    <div class="title">描述</div>
+                    <div class="textN">
+                        时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿；临帝子之长洲，得天人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，即冈峦之体势。披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰弥津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨；雁阵惊寒，声断衡阳之浦。
+                    </div>
+                    <div class="title">提出 Agent</div>
+                    <div class="listfieldbox">
+                        <div class="item">
+                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                            <div class="right">Codex</div>
+                        </div>
+                    </div>
+                    <div class="title">时间</div>
+                    <div class="textN">2026年9月23日下午12:00</div>
+                    <div class="title">操作</div>
+                    <div class="buttonbox2">审批</div>
+                </div>
+            </div>
+
+            <div class="tabMain">
+                <p class="title">Agent 管理</p>
+                <p class="title2">
+                    管理现有的 Agent
+                </p>
+                <div class="boxerbox">
+                    <div class="item">
+                        <div class="header">主 Agent</div>
+                        <div class="listfieldbox">
+                        <div class="item">
+                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                            <div class="right">Codex 021</div>
+                        </div>
+                        </div>
+                        <div class="title">当前状态</div>
+                        <div class="textZ"><div class="tagZ tagZOK">可用</div></div>
+                        <div class="title">说明</div>
+                        <div class="textZ">负责统筹、评审和所有 Git 操作</div>
+                        <div class="title">当前任务</div>
+                        <div class="textZ">统筹、评审和所有 Git 操作</div>
+                        <div class="title">基础能力</div>
+                        <div class="tgBox">
+                            <div class="tagZ tagZOK tagZS">会话身份隔离</div>
+                            <div class="tagZ tagZOK tagZS">会话连续性证据</div>
+                            <div class="tagZ tagZOK tagZS">读取项目上下文</div>
+                            <div class="tagZ tagZOK tagZS">结构化工具调用</div>
+                        </div>
+                        <div class="title">运营能力</div>
+                        <div class="tgBox">
+                            <div class="tagZ tagZOK tagZS">跑完整任务流程</div>
+                            <div class="tagZ tagZOK tagZS">提交理解报告</div>
+                            <div class="tagZ tagZOK tagZS">参与约定</div>
+                            <div class="tagZ tagZOK tagZS">收取消息</div>
+                            <div class="tagZ tagZOK tagZS">正式答复</div>
+                            <div class="tagZ tagZOK tagZS">断线安全重连</div>
+                            <div class="tagZ tagZOK tagZS">消息不重复</div>
+                        </div>
+                        <div class="option">
+                            <div class="buttonbox2">撤销任务</div>
+                            <div class="buttonbox2 buttonbox2active">撤销主 Agent</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="header">子 Agent</div>
+                        <div class="listfieldbox">
+                            <div class="item">
+                                <img class="left" src="./assets/img/agent/codex-l.png" />
+                                <div class="right">Codex 021</div>
+                            </div>
+                        </div>
+                        <div class="title">当前状态</div>
+                        <div class="textZ"><div class="tagZ tagZOK">可用</div></div>
+                        <div class="title">说明</div>
+                        <div class="textZ">负责统筹、评审和所有 Git 操作</div>
+                        <div class="title">当前任务</div>
+                        <div class="textZ">统筹、评审和所有 Git 操作</div>
+                        <div class="title">基础能力</div>
+                        <div class="tgBox">
+                            <div class="tagZ tagZOK tagZS">会话身份隔离</div>
+                            <div class="tagZ tagZOK tagZS">会话连续性证据</div>
+                            <div class="tagZ tagZOK tagZS">读取项目上下文</div>
+                            <div class="tagZ tagZOK tagZS">结构化工具调用</div>
+                        </div>
+                        <div class="title">运营能力</div>
+                        <div class="tgBox">
+                            <div class="tagZ tagZOK tagZS">跑完整任务流程</div>
+                            <div class="tagZ tagZOK tagZS">提交理解报告</div>
+                            <div class="tagZ tagZOK tagZS">参与约定</div>
+                            <div class="tagZ tagZOK tagZS">收取消息</div>
+                            <div class="tagZ tagZS">正式答复</div>
+                            <div class="tagZ tagZS">断线安全重连</div>
+                            <div class="tagZ tagZS">消息不重复</div>
+                        </div>
+                        <div class="option">
+                            <div class="buttonbox2">撤销任务</div>
+                            <div class="buttonbox2 buttonbox2active">设为主 Agent</div>
+                        </div>
+                    </div>
+                    <div class="itemAdd"></div>
+                </div>
+            </div>
+
+            <div class="tabMain">
+                <p class="title">任务区</p>
+                <p class="title2">
+                    当前子 Agent 的任务清单
+                </p>
+                <div class="tablebox">
+                    <div class="th">
+                        <div class="colu colu-l">任务</div>
+                        <div class="colu">状态</div>
+                        <div class="colu colu-m">负责 Agent</div>
+                        <div class="colu colu-m">开工条件</div>
+                        <div class="colu colu-m">改动范围</div>
+                        <div class="colu colu-m">交付结果</div>
+                    </div>
+                    <div class="tr">
+                        <div class="colu colu-l">
+                            <div class="colu-t">
+                                <div class="citem1 lev-active">约定位于printf()中的接口</div>
+                                <div class="citem2">
+                                    VisualBasic.OnErrorResumeNext.Interrupt="None";UserSelection="always"
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colu"><span class="st st-7"></span></div>
+                        <div class="colu colu-m">
+                            <div class="colu-t">
+                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem2">9/24 22:00</div>
+                            </div>
+                        </div>
+                        <div class="colu colu-m colu-cdt"><span class="tagZ tagZOK">理解报告</span><span class="tagZ">契约</span><span class="tagZ">工作区</span><span class="tagZ">操作许可</span></div>
+                        <div class="colu colu-m">后端接口目录</div>
+                        <div class="colu colu-m">——</div>
+                    </div>
+                </div>
+            </div>
+            <div class="asideMain" id="asideMainProj">
+                <div class="title">
+                    <div class="left">
+                        <i class="fa-solid fa-file-word"></i>
+                        <p>任务细节</p>
+                    </div>
+                    <div class="right">×</div>
+                </div>
+                <div class="content">
+                    <div class="title">任务</div>
+                    <div class="textN">2026年9月23日新建的测试任务</div>
+                    <div class="title">当前状态</div>
+                    <div class="textN">
+                        <div class="status-start">准备中</div>
+                    </div>
+                    <div class="title">负责 Agent</div>
+                    <div class="textN">Claude Code 052</div>
+                    <div class="title">理解报告</div>
+                    <div class="textN">
+                        豫章故郡，洪都新府。星分翼轸，地接衡庐。襟三江而带五湖，控蛮荆而引瓯越。物华天宝，龙光射牛斗之墟；人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。台隍枕夷夏之交，宾主尽东南之美。都督阎公之雅望，棨戟遥临；宇文新州之懿范，襜帷暂驻。
+                    </div>
+                    <div class="title">开工条件</div>
+                    <div class="textN">理解报告 契约 工作区 操作许可</div>
+                    <div class="title">改动范围</div>
+                    <div class="textN">后端接口目录</div>
+                    <div class="title">交付结果</div>
+                    <div class="textN">——</div>
+                    <div class="title">时间</div>
+                    <div class="textN">2026年9月10日</div>
+                </div>
+            </div>
+            <div class="tabMain">
+                <p class="title">冲突与协商</p>
+                <p class="title2">Agent 间的冲突与协商</p>
+                <div class="tabblock">
+                    <div class="tabPlace">
+                        <div class="tabItem tabItemActive">分歧</div>
+                        <div class="tabItem">冲突</div>
+                        <div class="tabItem">Agent 间协商消息</div>
+                        <div class="tabItem">契约</div>
+                    </div>
+                    <div class="tabContent">
+                        <div class="boxerbox boxerboxC">
+                            <div class="item">
+                                <p class="header">user.status字段的理解分歧</p>
+                                <div class="listfieldbox">
+                                    <div class="item">
+                                        <img class="left" src="./assets/img/agent/codex-l.png" />
+                                        <div class="right">Codex 021</div>
+                                    </div>
+                                    <div class="item">
+                                        <img class="left" src="./assets/img/agent/codex-l.png" />
+                                        <div class="right">Codex 023</div>
+                                    </div>
+                                </div>
+                                <p class="title">Codex 021的理解</p>
+                                <p class="textZ">user.status字段可为空，只要后期需要时补上即可</p>
+                                <p class="title">Codex 023的理解</p>
+                                <p class="textZ">user.status字段不能为空，否则可能影响项目初始化函数的计算</p>
+                            <div class="option">
+                                <div class="buttonbox2">查看协商</div>
+                                <div class="buttonbox2 buttonbox2active">查看契约</div>
+                            </div>
+                            </div>
+                            <div class="item">
+                                <p class="header">user.status字段的理解分歧</p>
+                                <div class="listfieldbox">
+                                    <div class="item">
+                                        <img class="left" src="./assets/img/agent/codex-l.png" />
+                                        <div class="right">Codex 021</div>
+                                    </div>
+                                    <div class="item">
+                                        <img class="left" src="./assets/img/agent/codex-l.png" />
+                                        <div class="right">Codex 023</div>
+                                    </div>
+                                </div>
+                                <p class="title">Codex 021的理解</p>
+                                <p class="textZ">user.status字段可为空，只要后期需要时补上即可</p>
+                                <p class="title">Codex 023的理解</p>
+                                <p class="textZ">user.status字段不能为空，否则可能影响项目初始化函数的计算</p>
+                            <div class="option">
+                                <div class="buttonbox2">查看协商</div>
+                                <div class="buttonbox2 buttonbox2active">查看契约</div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabContent"></div>
+                    <div class="tabContent"></div>
+                    <div class="tabContent"></div>
+                </div>
+            </div>
+            
+            <div class="asideMain" id="asideMainProj">
+                <div class="title">
+                    <div class="left">
+                        <i class="fa-solid fa-file-word"></i>
+                        <p>详细信息</p>
+                    </div>
+                    <div class="right">×</div>
+                </div>
+                <div class="content"></div>
+            </div>
+            <div class="tabMain">
+                <p class="title">意图与权限审计</p>
+            </div>
+            <div class="asideMain" id="asideMainProj">
+                <div class="title">
+                    <div class="left">
+                        <i class="fa-solid fa-file-word"></i>
+                        <p>项目总目标文档</p>
+                    </div>
+                    <div class="right">×</div>
+                </div>
+                <div class="content"></div>
+            </div>
+            <div class="tabMain">
+                <p class="title">工作区与改动</p>
+            </div>
+            <div class="asideMain" id="asideMainProj">
+                <div class="title">
+                    <div class="left">
+                        <i class="fa-solid fa-file-word"></i>
+                        <p>项目总目标文档</p>
+                    </div>
+                    <div class="right">×</div>
+                </div>
+                <div class="content"></div>
+            </div>
+            <div class="tabMain">
+                <p class="title">完成与存档点</p>
+            </div>
+            <div class="asideMain" id="asideMainProj">
+                <div class="title">
+                    <div class="left">
+                        <i class="fa-solid fa-file-word"></i>
+                        <p>项目总目标文档</p>
+                    </div>
+                    <div class="right">×</div>
+                </div>
+                <div class="content"></div>
+            </div>
+            <div class="tabMain">
+                <p class="title">总路径</p>
+            </div>
+            <div class="asideMain" id="asideMainProj">
+                <div class="title">
+                    <div class="left">
+                        <i class="fa-solid fa-file-word"></i>
+                        <p>项目总目标文档</p>
+                    </div>
+                    <div class="right">×</div>
+                </div>
+                <div class="content"></div>
             </div>
         </div>
     </section>
@@ -287,6 +897,15 @@
                                         <div class="buttonbox" onclick="openWindow('loadW')">开始</div>
                                     </div>
                                 </div>
+                                <div class="item">
+                                    <div class="left">
+                                        <p class="fword">测试操作成功弹窗</p>
+                                        <p class="sword">DEBUG</p>
+                                    </div>
+                                    <div class="right">
+                                        <div class="buttonbox" onclick="openTST()">开始</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -314,7 +933,7 @@
     <section class="secWindow" id="mgrAgent">
         <div class="window1">
             <div class="titleBar">
-                <div class="title"><i class="fa-solid fa-cog"></i> Agent 列表</div>
+                <div class="title"><i class="fa-solid fa-terminal"></i> Agent 列表</div>
                 <div class="button" onclick="closeWindow('mgrAgent')">×</div>
             </div>
             <div class="main">
@@ -348,7 +967,7 @@
     <section class="secWindow" id="mgrAgentInfo">
         <div class="window2">
             <div class="titleBar">
-                <div class="title"><i class="fa-solid fa-cog"></i>DeepSeek Harness（054）详细信息</div>
+                <div class="title"><i class="fa-solid fa-terminal"></i>DeepSeek Harness（054）详细信息</div>
                 <div class="button" onclick="closeWindow('mgrAgentInfo')">×</div>
             </div>
             <div class="content">
@@ -442,7 +1061,7 @@
     <section class="secWindow" id="addProj">
         <div class="window4">
             <div class="titleBar">
-                <div class="title"><i class="fa-solid fa-cog"></i> 新建协作</div>
+                <div class="title"><i class="fa-solid fa-file-circle-plus"></i> 新建协作</div>
                 <div class="button" onclick="closeWindow('addProj')">×</div>
             </div>
             <div class="content">
@@ -454,7 +1073,7 @@
                         <div class="title">协作的名字是什么？</div>
                         <div class="descbox">为你的协作取一个易于辨认的名字，以方便你在调度中心进行查看和管理。</div>
                         <div class="textbox2">
-                            <input class="inner" placeholder="协作的名称"/>
+                            <input class="inner" placeholder="协作的名称" />
                         </div>
                     </div>
                 </div>
@@ -463,14 +1082,14 @@
                         <div class="title">连接到主 Agent</div>
                         <div class="descbox">输入一个 Agent 的 API 地址和名字，以将该 Agent 作为主 Agent 连接到协作系统中。</div>
                         <div class="textbox2">
-                            <input class="inner" placeholder="主 Agent 名称"/>
+                            <input class="inner" placeholder="主 Agent 名称" />
                         </div>
                         <div class="textbox2">
-                            <input class="inner" placeholder="主 Agent 的 API 地址"/>
+                            <input class="inner" placeholder="主 Agent 的 API 地址" />
                         </div>
                         <div class="descbox">检测到的 Agent：</div>
                         <div class="agentbox">
-                            <img class="left" src="./assets/img/agent/deepseek-l.png"/>
+                            <img class="left" src="./assets/img/agent/deepseek-l.png" />
                             <div class="right">DeepSeek Harness</div>
                         </div>
                     </div>
@@ -480,16 +1099,16 @@
                         <div class="title">连接到子 Agent</div>
                         <div class="descbox">为你的协作项目加入一个或多个子 Agent。</div>
                         <div class="listfieldbox">
-                            <div class="item">
-                                <img class="left" src="./assets/img/agent/deepseek-l.png"/>
+                            <div class="item itemC">
+                                <img class="left" src="./assets/img/agent/deepseek-l.png" />
                                 <div class="right">DeepSeek Harness</div>
                             </div>
-                            <div class="item">
-                                <img class="left" src="./assets/img/agent/deepseek-l.png"/>
+                            <div class="item itemC">
+                                <img class="left" src="./assets/img/agent/deepseek-l.png" />
                                 <div class="right">DeepSeek Harness</div>
                             </div>
-                            <div class="item">
-                                <img class="left" src="./assets/img/agent/deepseek-l.png"/>
+                            <div class="item itemC">
+                                <img class="left" src="./assets/img/agent/deepseek-l.png" />
                                 <div class="right">DeepSeek Harness</div>
                             </div>
                             <div class="itemAdd" onclick="openWindow('addSubAgent')">
@@ -501,7 +1120,7 @@
                 <div class="right" id="newXz4">
                     <div class="uiBlock">
                         <div class="title">一切均已准备就绪</div>
-                        <div class="descbox">请核对以下配置是否正确。</div>                        
+                        <div class="descbox">请核对以下配置是否正确。</div>
                     </div>
                     <div class="freebox">
                         <div class="descbox">项目名称</div>
@@ -509,18 +1128,18 @@
                         <div class="descbox">主 Agent</div>
                         <div class="listfieldbox">
                             <div class="itemJ">
-                                <img class="left" src="./assets/img/agent/claudecode-l.png"/>
+                                <img class="left" src="./assets/img/agent/claudecode-l.png" />
                                 <div class="right">Claude Code</div>
                             </div>
                         </div>
                         <div class="descbox">子 Agent</div>
                         <div class="listfieldbox">
                             <div class="itemJ">
-                                <img class="left" src="./assets/img/agent/claudecode-l.png"/>
+                                <img class="left" src="./assets/img/agent/claudecode-l.png" />
                                 <div class="right">Claude Code</div>
                             </div>
                             <div class="itemJ">
-                                <img class="left" src="./assets/img/agent/codex-l.png"/>
+                                <img class="left" src="./assets/img/agent/codex-l.png" />
                                 <div class="right">Codex</div>
                             </div>
                         </div>
@@ -568,38 +1187,34 @@
         <div class="aText">请至少选择一个Agent</div>
     </section>
 
+    <!--通知：权限审计-->
+    <section class="secActWin" id="rightGetWin">
+        <div class="title">需要用户确认/决定的信息</div>
+        <div class="content">
+            项目“Hello World”的子 Agent（Claude Code 051）试图将main()函数的printf("%d",a)关键位置改为printf("%f",a)，主 Agent
+            认为这一改动可能会影响整个程序的输出结果，需要人工裁定。
+        </div>
+        <div class="option">
+            <div class="buttonbox2 buttonbox2important">查看详情</div>
+            <div class="buttonbox2">忽略</div>
+        </div>
+    </section>
+
     <!--窗口：添加子Agent-->
     <section class="secWindow" id="addSubAgent">
         <div class="window2">
             <div class="titleBar">
-                <div class="title"><i class="fa-solid fa-cog"></i>DeepSeek Harness（054）详细信息</div>
+                <div class="title"><i class="fa-solid fa-circle-plus"></i>添加子 Agent</div>
                 <div class="button" onclick="closeWindow('addSubAgent')">×</div>
             </div>
             <div class="content">
                 <div class="uiBlock">
-                    <div class="items">
-                        <div class="item">
-                            <div class="left">
-                                <p class="fword">子 Agent 名称</p>
-                                <p class="sword">为子 Agent 设置一个标识名称</p>
-                            </div>
-                            <div class="right">
-                                <div class="textbox">
-                                    <input class="left" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="left">
-                                <p class="fword">API 地址</p>
-                                <p class="sword">Agent 接入 Tsunagou 的地址</p>
-                            </div>
-                            <div class="right">
-                                <div class="textbox">
-                                    <input class="left" />
-                                </div>
-                            </div>
-                        </div>
+                    <p class="descbox">输入子 Agent 的名称和 API 地址。</p>
+                    <div class="textbox2">
+                        <input class="inner" placeholder="子 Agent 名称" />
+                    </div>
+                    <div class="textbox2">
+                        <input class="inner" placeholder="子 Agent 的 API 地址" />
                     </div>
                 </div>
             </div>
@@ -611,12 +1226,12 @@
     </section>
 
     <section class="secWindow" id="loadW">
-    <div class="window5">
-        <div class="loaderbox"></div>
-        <div class="textW">正在连接 Agent</div>
-    </div>
+        <div class="window5">
+            <div class="loaderbox"></div>
+            <div class="textW">正在连接 Agent</div>
+        </div>
     </section>
-    
+
     <script src="./assets/js/behavior.js"></script>
 </body>
 
