@@ -676,6 +676,30 @@ function updateAsideCursor(e) {
     if (el) el.style.cursor = on ? 'col-resize' : '';
 }
 
+/* ============================================================
+ * 侧栏关闭按钮 —— .asideMain 标题栏右上角的“×”
+ * 约定（纯结构配对，HTML 里不需要写 id / onclick）：
+ *     .inner > .asideMain > .title > .right    就是标题栏右上角那个 ×
+ * 点它就把这个侧栏收起来，隐藏方式与标签页切换的“离开”完全一致
+ * （hideProjPane：行内 display:none + opacity:0），主视图随即占满整行宽度。
+ *   - 只收起点中的那一个侧栏，其它标签页的侧栏不受影响；
+ *   - 收起是临时的：再次切到该标签页时 selectProjTab 会照常把它显示回来
+ *     （显示走 showProjPane，所以还是从 opacity:0 淡入）；
+ *   - 走 document 级事件委托，以后新增侧栏不用改这里；
+ *   - 只写 display / opacity，宽度仍然只由侧栏拖拽那条逻辑管。
+ * ============================================================ */
+
+// 点中的元素若在某个侧栏的标题栏“×”上，就返回那个侧栏，否则返回 null
+function getAsideOfCloseBtn(target) {
+    const btn = target.closest('.secProjPanel .inner > .asideMain > .title > .right');
+    return btn ? btn.closest('.asideMain') : null;
+}
+
+document.addEventListener('click', (e) => {
+    const aside = getAsideOfCloseBtn(e.target);
+    if (aside) hideProjPane(aside);
+});
+
 function openTST() {
     getDiv('rightGetWin').style.transform = "translateX(50%) translateY(0%)"
 }

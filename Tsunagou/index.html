@@ -12,6 +12,7 @@
 <body>
     <!--侧边栏-->
     <section class="secAside" id="secAside-Wide">
+        <!--logo和新建协作-->
         <div class="header">
             <div class="topper">
                 <img src="./assets/img/logo-l.png" />
@@ -21,6 +22,7 @@
             </div>
             <div class="newBtn" onclick="openWindow('addProj')"><i class="fa-solid fa-file-circle-plus"></i>创建协作</div>
         </div>
+        <!--协作项目列表-->
         <div class="subMgr">
             <div class="wkTitle">
                 <div class="wkTleft">
@@ -114,6 +116,7 @@
                 </div>
             </div>
         </div>
+        <!--侧边栏底部按钮-->
         <div class="btmTabs">
             <div class="btmBtn" onclick="openWindow('mgrAgent')">
                 <i class="fa-solid fa-terminal"></i>
@@ -126,12 +129,15 @@
         </div>
     </section>
 
+    <!--折叠版本的侧边栏-->
     <section class="secAsideFolded" id="secAside-Narrow">
+        <!--顶部按钮-->
         <div class="topArea">
             <img class="foldImg" src="./assets/img/logo-little-l.png" />
             <div class="foldBtn" onclick="openWindow('addProj')"><i class="fa-solid fa-file-circle-plus"></i></div>
             <div class="foldBtn" onclick="sidebarToWide()"><i class="fa-solid fa-angle-right"></i></div>
         </div>
+        <!--底部按钮-->
         <div class="bottomArea">
             <div class="foldBtn" onclick="openWindow('mgrAgent')"><i class="fa-solid fa-terminal"></i></div>
             <div class="foldBtn" onclick="openWindow('setPanel')"><i class="fa-solid fa-cog"></i></div>
@@ -140,6 +146,7 @@
 
     <!--初始工作区-->
     <section class="secHome">
+        <!--顶部区域-->
         <div class="topArea">
             <div class="mainArea">
                 <div class="headerArea">
@@ -162,6 +169,7 @@
                 </div>
             </div>
         </div>
+        <!--底部区域-->
         <div class="bottomArea">
             <div class="left">
                 <p>2026.09.21</p>
@@ -174,6 +182,7 @@
 
     <!--项目工作区-->
     <section class="secProjPanel">
+        <!--项目任务栏-->
         <div class="navArea">
             <div class="left">
                 <p>你好,世界——一种基于Hello World文化的3D游戏开发</p>
@@ -181,6 +190,7 @@
             </div>
             <div class="right"></div>
         </div>
+        <!--总标签页-->
         <div class="tabArea">
             <div class="tabS tabSactive">主视图</div>
             <div class="tabS">我的收件箱</div>
@@ -188,11 +198,14 @@
             <div class="tabS">任务区</div>
             <div class="tabS">冲突与协商</div>
             <div class="tabS">意图与权限审计</div>
-            <div class="tabS">工作区与改动</div>
-            <div class="tabS">完成与存档点</div>
+            <div class="tabS">工作区</div>
+            <div class="tabS">项目验收</div>
+            <div class="tabS">存档点</div>
             <div class="tabS">总路径</div>
         </div>
+        <!--主要内容区域-->
         <div class="inner">
+            <!--主视图MAIN-->
             <div class="tabMain tabMainNormal">
                 <p class="title">主视图</p>
                 <p class="title2">项目名称/描述</p>
@@ -258,6 +271,36 @@
                         </div>
                     </div>
                 </div>
+                <p class="title2">项目统计信息</p>
+                <div class="dataArea">
+                    <div class="table">
+                        <div class="item">
+                            <div class="itemTh">子 Agent 数</div>
+                            <div class="itemTd">4</div>
+                        </div>
+                        <div class="item">
+                            <div class="itemTh">冲突数</div>
+                            <div class="itemTd">2</div>
+                        </div>
+
+                        <div class="item">
+                            <div class="itemTh">协商数</div>
+                            <div class="itemTd">2</div>
+                        </div>
+                        <div class="item">
+                            <div class="itemTh">契约数</div>
+                            <div class="itemTd">2</div>
+                        </div>
+                        <div class="item">
+                            <div class="itemTh">存档数</div>
+                            <div class="itemTd">6</div>
+                        </div>
+                        <div class="item">
+                            <div class="itemTh">耗时</div>
+                            <div class="itemTd">3 小时 27 分钟</div>
+                        </div>
+                    </div>
+                </div>
                 <p class="title2">项目数据存储</p>
                 <div class="dataArea">
                     <div class="table">
@@ -276,6 +319,8 @@
                     </div>
                 </div>
             </div>
+
+            <!--我的收件箱MAIN-->
             <div class="tabMain">
                 <p class="title">我的收件箱</p>
                 <p class="title2">
@@ -299,7 +344,14 @@
                         </div>
                         <div class="colu colu-m">
                             <div class="colu-t">
-                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem1">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="citem2">9/24 22:00</div>
                             </div>
                         </div>
@@ -318,7 +370,14 @@
                         </div>
                         <div class="colu colu-m">
                             <div class="colu-t">
-                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem1">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="citem2">9/24 22:00</div>
                             </div>
                         </div>
@@ -337,7 +396,14 @@
                         </div>
                         <div class="colu colu-m">
                             <div class="colu-t">
-                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem1">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="citem2">9/24 22:00</div>
                             </div>
                         </div>
@@ -356,7 +422,14 @@
                         </div>
                         <div class="colu colu-m">
                             <div class="colu-t">
-                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem1">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="citem2">9/24 22:00</div>
                             </div>
                         </div>
@@ -386,7 +459,14 @@
                         </div>
                         <div class="colu colu-m">
                             <div class="colu-t">
-                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem1">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="citem2">9/24 22:00</div>
                             </div>
                         </div>
@@ -405,7 +485,14 @@
                         </div>
                         <div class="colu colu-m">
                             <div class="colu-t">
-                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem1">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="citem2">9/24 22:00</div>
                             </div>
                         </div>
@@ -424,7 +511,14 @@
                         </div>
                         <div class="colu colu-m">
                             <div class="colu-t">
-                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem1">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="citem2">9/24 22:00</div>
                             </div>
                         </div>
@@ -443,7 +537,14 @@
                         </div>
                         <div class="colu colu-m">
                             <div class="colu-t">
-                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem1">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="citem2">9/24 22:00</div>
                             </div>
                         </div>
@@ -453,6 +554,7 @@
                     </div>
                 </div>
             </div>
+            <!--我的收件箱ASIDE-->
             <div class="asideMain" id="asideMainProj">
                 <div class="title">
                     <div class="left">
@@ -482,6 +584,7 @@
                 </div>
             </div>
 
+            <!--Agent 管理MAIN-->
             <div class="tabMain">
                 <p class="title">Agent 管理</p>
                 <p class="title2">
@@ -491,13 +594,15 @@
                     <div class="item">
                         <div class="header">主 Agent</div>
                         <div class="listfieldbox">
-                        <div class="item">
-                            <img class="left" src="./assets/img/agent/codex-l.png" />
-                            <div class="right">Codex 021</div>
-                        </div>
+                            <div class="item">
+                                <img class="left" src="./assets/img/agent/codex-l.png" />
+                                <div class="right">Codex 021</div>
+                            </div>
                         </div>
                         <div class="title">当前状态</div>
-                        <div class="textZ"><div class="tagZ tagZOK">可用</div></div>
+                        <div class="textZ">
+                            <div class="tagZ tagZOK">可用</div>
+                        </div>
                         <div class="title">说明</div>
                         <div class="textZ">负责统筹、评审和所有 Git 操作</div>
                         <div class="title">当前任务</div>
@@ -533,7 +638,9 @@
                             </div>
                         </div>
                         <div class="title">当前状态</div>
-                        <div class="textZ"><div class="tagZ tagZOK">可用</div></div>
+                        <div class="textZ">
+                            <div class="tagZ tagZOK">可用</div>
+                        </div>
                         <div class="title">说明</div>
                         <div class="textZ">负责统筹、评审和所有 Git 操作</div>
                         <div class="title">当前任务</div>
@@ -564,6 +671,7 @@
                 </div>
             </div>
 
+            <!--任务区MAIN-->
             <div class="tabMain">
                 <p class="title">任务区</p>
                 <p class="title2">
@@ -581,7 +689,7 @@
                     <div class="tr">
                         <div class="colu colu-l">
                             <div class="colu-t">
-                                <div class="citem1 lev-active">约定位于printf()中的接口</div>
+                                <div class="citem1 lev-active">D-001 约定位于printf()中的接口</div>
                                 <div class="citem2">
                                     VisualBasic.OnErrorResumeNext.Interrupt="None";UserSelection="always"
                                 </div>
@@ -590,16 +698,25 @@
                         <div class="colu"><span class="st st-7"></span></div>
                         <div class="colu colu-m">
                             <div class="colu-t">
-                                <div class="citem1">Claude Code 192</div>
+                                <div class="citem1">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="citem2">9/24 22:00</div>
                             </div>
                         </div>
-                        <div class="colu colu-m colu-cdt"><span class="tagZ tagZOK">理解报告</span><span class="tagZ">契约</span><span class="tagZ">工作区</span><span class="tagZ">操作许可</span></div>
+                        <div class="colu colu-m colu-cdt"><span class="tagZ tagZOK">理解报告</span><span
+                                class="tagZ">契约</span><span class="tagZ">工作区</span><span class="tagZ">操作许可</span></div>
                         <div class="colu colu-m">后端接口目录</div>
                         <div class="colu colu-m">——</div>
                     </div>
                 </div>
             </div>
+            <!--任务区ASIDE-->
             <div class="asideMain" id="asideMainProj">
                 <div class="title">
                     <div class="left">
@@ -631,6 +748,8 @@
                     <div class="textN">2026年9月10日</div>
                 </div>
             </div>
+
+            <!--冲突与协商MAIN-->
             <div class="tabMain">
                 <p class="title">冲突与协商</p>
                 <p class="title2">Agent 间的冲突与协商</p>
@@ -638,7 +757,7 @@
                     <div class="tabPlace">
                         <div class="tabItem tabItemActive">分歧</div>
                         <div class="tabItem">冲突</div>
-                        <div class="tabItem">Agent 间协商消息</div>
+                        <div class="tabItem">Agent 间协商</div>
                         <div class="tabItem">契约</div>
                     </div>
                     <div class="tabContent">
@@ -646,53 +765,199 @@
                             <div class="item">
                                 <p class="header">user.status字段的理解分歧</p>
                                 <div class="listfieldbox">
-                                    <div class="item">
+                                    <div class="item itemS">
                                         <img class="left" src="./assets/img/agent/codex-l.png" />
                                         <div class="right">Codex 021</div>
                                     </div>
-                                    <div class="item">
+                                    <div class="item itemS">
                                         <img class="left" src="./assets/img/agent/codex-l.png" />
                                         <div class="right">Codex 023</div>
                                     </div>
                                 </div>
+                                <div class="textTime">今天 10:45</div>
+                                <div class="title">影响范围</div>
+                                <div class="textZ">后端任务D-001，前端任务D-002</div>
                                 <p class="title">Codex 021的理解</p>
-                                <p class="textZ">user.status字段可为空，只要后期需要时补上即可</p>
+                                <p class="textZbox">user.status字段可为空，只要后期需要时补上即可</p>
                                 <p class="title">Codex 023的理解</p>
-                                <p class="textZ">user.status字段不能为空，否则可能影响项目初始化函数的计算</p>
-                            <div class="option">
-                                <div class="buttonbox2">查看协商</div>
-                                <div class="buttonbox2 buttonbox2active">查看契约</div>
-                            </div>
-                            </div>
-                            <div class="item">
-                                <p class="header">user.status字段的理解分歧</p>
-                                <div class="listfieldbox">
-                                    <div class="item">
-                                        <img class="left" src="./assets/img/agent/codex-l.png" />
-                                        <div class="right">Codex 021</div>
-                                    </div>
-                                    <div class="item">
-                                        <img class="left" src="./assets/img/agent/codex-l.png" />
-                                        <div class="right">Codex 023</div>
-                                    </div>
+                                <p class="textZbox">user.status字段不能为空，否则可能影响项目初始化函数的计算</p>
+                                <div class="option">
+                                    <div class="buttonbox2">查看协商</div>
+                                    <div class="buttonbox2 buttonbox2active">查看契约</div>
                                 </div>
-                                <p class="title">Codex 021的理解</p>
-                                <p class="textZ">user.status字段可为空，只要后期需要时补上即可</p>
-                                <p class="title">Codex 023的理解</p>
-                                <p class="textZ">user.status字段不能为空，否则可能影响项目初始化函数的计算</p>
-                            <div class="option">
-                                <div class="buttonbox2">查看协商</div>
-                                <div class="buttonbox2 buttonbox2active">查看契约</div>
-                            </div>
                             </div>
                         </div>
                     </div>
-                    <div class="tabContent"></div>
-                    <div class="tabContent"></div>
-                    <div class="tabContent"></div>
+                    <div class="tabContent">
+                        <div class="tablebox tableboxC">
+                            <div class="th">
+                                <div class="colu colu-l">冲突</div>
+                                <div class="colu colu-m">影响范围</div>
+                                <div class="colu colu-m">相关 Agent</div>
+                                <div class="colu colu-l">处理方案</div>
+                            </div>
+                            <div class="tr">
+                                <div class="colu colu-l">
+                                    <div class="colu-t">
+                                        <div class="citem1 lev-active">位于printf()中的接口未约定</div>
+                                        <div class="citem2">
+                                            VisualBasic.OnErrorResumeNext.Interrupt="None";UserSelection="always"</div>
+                                    </div>
+                                </div>
+                                <div class="colu colu-m">后端HTTP接口</div>
+                                <div class="colu colu-m">
+                                    <div class="colu-t">
+                                        <div class="citem1">
+                                            <div class="listfieldbox">
+                                                <div class="item itemS">
+                                                    <img class="left" src="./assets/img/agent/codex-l.png" />
+                                                    <div class="right">Codex 021</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="citem1">
+                                            <div class="listfieldbox">
+                                                <div class="item itemS">
+                                                    <img class="left" src="./assets/img/agent/codex-l.png" />
+                                                    <div class="right">Codex 022</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="citem2">9/24 22:00</div>
+                                    </div>
+                                </div>
+                                <div class="colu colu-l">
+                                    ——
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabContent">
+                        <div class="tablebox tableboxC">
+                            <div class="th">
+                                <div class="colu colu-m">收发 Agent</div>
+                                <div class="colu colu-l">内容</div>
+                                <div class="colu">状态</div>
+                                <div class="colu colu-m">消息处理情况</div>
+                            </div>
+                            <div class="tr">
+                                <div class="colu colu-m">
+                                    <div class="colu-t">
+                                        <div class="citem3">
+                                            <p class="lev-inactive">发件</p> Claude Code 092
+                                        </div>
+                                        <div class="citem3">
+                                            <p class="lev-inactive">收件</p> Claude Code 127
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="colu colu-l">
+                                    <div class="colu-t">请认领统一用户返回字段，先给出字段契约草案，否则交接难以进行。要求如下：①强制要求使用HTTP
+                                        GET方法，暂时不使用POST方法，以方便调试；②HTTP API返回内容要求使用JSON。</div>
+                                </div>
+                                <div class="colu">
+                                    <span class="tagZ tagZOK">已答复</span>
+                                </div>
+                                <div class="colu colu-m">
+                                    <div class="tagZbox">
+                                        <span class="tagZ tagZOK">已送达</span>
+                                        <span class="tagZ tagZOK">处理中</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tr">
+                                <div class="colu colu-m">
+                                    <div class="colu-t">
+                                        <div class="citem3">
+                                            <p class="lev-inactive">发件</p> Claude Code 092
+                                        </div>
+                                        <div class="citem3">
+                                            <p class="lev-inactive">收件</p> Claude Code 127
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="colu colu-l">
+                                    <div class="colu-t">请认领统一用户返回字段，先给出字段契约草案，否则交接难以进行。要求如下：①强制要求使用HTTP
+                                        GET方法，暂时不使用POST方法，以方便调试；②HTTP API返回内容要求使用JSON。</div>
+                                </div>
+                                <div class="colu">
+                                    <span class="tagZ">未答复</span>
+                                </div>
+                                <div class="colu colu-m">
+                                    <div class="tagZbox">
+                                        <span class="tagZ tagZOK">已送达</span>
+                                        <span class="tagZ tagZOK">处理中</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tr">
+                                <div class="colu colu-m">
+                                    <div class="colu-t">
+                                        <div class="citem3">
+                                            <p class="lev-inactive">发件</p> Claude Code 092
+                                        </div>
+                                        <div class="citem3">
+                                            <p class="lev-inactive">收件</p> Claude Code 127
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="colu colu-l">
+                                    <div class="colu-t">请认领统一用户返回字段，先给出字段契约草案，否则交接难以进行。要求如下：①强制要求使用HTTP
+                                        GET方法，暂时不使用POST方法，以方便调试；②HTTP API返回内容要求使用JSON。</div>
+                                </div>
+                                <div class="colu">
+                                    <span class="tagZ tagZOK">无需答复</span>
+                                </div>
+                                <div class="colu colu-m">
+                                    <div class="tagZbox">
+                                        <span class="tagZ tagZOK">已送达</span>
+                                        <span class="tagZ">待领取</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabContent">
+                        <div class="boxerbox boxerboxC">
+                            <div class="item">
+                                <p class="header">user.status字段契约（第1版）</p>
+                                <p class="textTime">今天 10:45</p>
+                                <p class="title">提出 Agent</p>
+                                <div class="listfieldbox">
+                                    <div class="item itemS">
+                                        <img class="left" src="./assets/img/agent/codex-l.png" />
+                                        <div class="right">Codex 021</div>
+                                    </div>
+                                </div>
+                                <p class="title">影响范围</p>
+                                <p class="textZ">后端任务D-001，前端任务D-002</p>
+                                <p class="title">已确认 Agent</p>
+                                <div class="listfieldbox">
+                                    <div class="item itemS">
+                                        <img class="left" src="./assets/img/agent/codex-l.png" />
+                                        <div class="right">Codex 021</div>
+                                    </div>
+                                </div>
+                                <p class="title">未确认 Agent</p>
+                                <div class="listfieldbox">
+                                    <div class="item itemS">
+                                        <img class="left" src="./assets/img/agent/codex-l.png" />
+                                        <div class="right">Codex 021</div>
+                                    </div>
+                                    <div class="item itemS">
+                                        <img class="left" src="./assets/img/agent/codex-l.png" />
+                                        <div class="right">Codex 021</div>
+                                    </div>
+                                </div>
+                                <div class="option">
+                                    <div class="buttonbox2 buttonbox2active">查看详情</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
+            <!--冲突与协商ASIDE-->
             <div class="asideMain" id="asideMainProj">
                 <div class="title">
                     <div class="left">
@@ -701,60 +966,702 @@
                     </div>
                     <div class="right">×</div>
                 </div>
-                <div class="content"></div>
+                <div class="content">
+                    <p class="bgTitle">User.Status字段的理解分歧</p>
+                    <div class="title">参与 Agent</div>
+                    <div class="listfieldbox">
+                        <div class="item itemS">
+                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                            <div class="right">Codex 021</div>
+                        </div>
+                        <div class="item itemS">
+                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                            <div class="right">Codex 021</div>
+                        </div>
+                    </div>
+                    <div class="title">时间</div>
+                    <div class="textN">今天 10:45</div>
+                    <div class="title">影响范围</div>
+                    <div class="textN">后端任务D-001，前端任务D-002</div>
+
+                    <div class="title">Codex 021的理解</div>
+                    <p class="textN">
+                        逝者如斯，而未尝往也；盈虚者如彼，而卒莫消长也。盖将自其变者而观之，则天地曾不能以一瞬；自其不变者而观之，则物与我皆无尽也，而又何羡乎！且夫天地之间，物各有主，苟非吾之所有，虽一毫而莫取。惟江上之清风，与山间之明月，耳得之而为声，目遇之而成色，取之无禁，用之不竭，是造物者之无尽藏也，而吾与子之所共适。
+                    </p>
+                    <div class="title">Codex 023的理解</div>
+                    <p class="textN">
+                        逝者如斯，而未尝往也；盈虚者如彼，而卒莫消长也。盖将自其变者而观之，则天地曾不能以一瞬；自其不变者而观之，则物与我皆无尽也，而又何羡乎！且夫天地之间，物各有主，苟非吾之所有，虽一毫而莫取。惟江上之清风，与山间之明月，耳得之而为声，目遇之而成色，取之无禁，用之不竭，是造物者之无尽藏也，而吾与子之所共适。
+                    </p>
+                </div>
+                <div class="content contentNDP">
+                    <p class="bgTitle">User.Status字段契约（第1版）</p>
+                    <div class="title">提出 Agent</div>
+                    <div class="listfieldbox">
+                        <div class="item itemS">
+                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                            <div class="right">Codex 021</div>
+                        </div>
+                    </div>
+                    <div class="title">提出时间</div>
+                    <div class="textN">今天 10:45</div>
+                    <div class="title">影响范围</div>
+                    <div class="textN">后端任务D-001，前端任务D-002</div>
+                    <div class="title">契约内容</div>
+                    <p class="textN">
+                        逝者如斯，而未尝往也；盈虚者如彼，而卒莫消长也。盖将自其变者而观之，则天地曾不能以一瞬；自其不变者而观之，则物与我皆无尽也，而又何羡乎！且夫天地之间，物各有主，苟非吾之所有，虽一毫而莫取。惟江上之清风，与山间之明月，耳得之而为声，目遇之而成色，取之无禁，用之不竭，是造物者之无尽藏也，而吾与子之所共适。
+                    </p>
+                    <p class="title">已确认 Agent</p>
+                    <div class="listfieldbox">
+                        <div class="item itemS">
+                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                            <div class="right">Codex 021</div>
+                        </div>
+                    </div>
+                    <p class="title">未确认 Agent</p>
+                    <div class="listfieldbox">
+                        <div class="item itemS">
+                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                            <div class="right">Codex 021</div>
+                        </div>
+                        <div class="item itemS">
+                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                            <div class="right">Codex 021</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!--意图与权限审计MAIN-->
             <div class="tabMain">
                 <p class="title">意图与权限审计</p>
+                <p class="title2">Agent 的意图和修改权限</p>
+                <div class="tabblock">
+                    <div class="tabPlace">
+                        <div class="tabItem tabItemActive">Agent 意图</div>
+                        <div class="tabItem">Agent 权限</div>
+                    </div>
+                    <div class="tabContent">
+                        <div class="tablebox tableboxC">
+                            <div class="th">
+                                <div class="colu colu-m">Agent</div>
+                                <div class="colu colu-m">目标</div>
+                                <div class="colu">方式</div>
+                                <div class="colu colu-l">原因</div>
+                                <div class="colu colu">声明版本</div>
+                                <div class="colu colu-m">租约</div>
+                            </div>
+                            <div class="tr">
+                                <div class="colu colu-m">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="colu colu-m">
+                                    后端接口目录.\API\api.py
+                                </div>
+                                <div class="colu">
+                                    独占
+                                </div>
+                                <div class="colu colu-l">
+                                    前端SUBMIT表单更改，后端必须提供相关接口
+                                </div>
+                                <div class="colu">
+                                    第1版
+                                </div>
+                                <div class="colu colu-m">
+                                    <div class="tagZ">尚未取得</div>
+                                </div>
+                            </div>
+                            <div class="tr">
+                                <div class="colu colu-m">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="colu colu-m">
+                                    后端接口目录.\API\api.py
+                                </div>
+                                <div class="colu">
+                                    独占
+                                </div>
+                                <div class="colu colu-l">
+                                    前端SUBMIT表单更改，后端必须提供相关接口
+                                </div>
+                                <div class="colu">
+                                    第1版
+                                </div>
+                                <div class="colu colu-m">
+                                    <div class="tagZ tagZOK">12 分 20 秒后过期</div>
+                                </div>
+                            </div>
+                            <div class="tr">
+                                <div class="colu colu-m">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="colu colu-m">
+                                    后端接口目录.\API\api.py
+                                </div>
+                                <div class="colu">
+                                    独占
+                                </div>
+                                <div class="colu colu-l">
+                                    前端SUBMIT表单更改，后端必须提供相关接口
+                                </div>
+                                <div class="colu">
+                                    第1版
+                                </div>
+                                <div class="colu colu-m">
+                                    <div class="tagZ">已过期</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabContent">
+                        <p class="title3">已经获得的租约</p>
+                        <div class="tablebox tableboxC">
+                            <div class="th">
+                                <div class="colu colu-m">Agent</div>
+                                <div class="colu colu-l">批准范围</div>
+                                <div class="colu colu">声明版本</div>
+                                <div class="colu colu-m">租约</div>
+                            </div>
+                            <div class="tr">
+                                <div class="colu colu-m">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="colu colu-l">
+                                    后端接口目录.\API\api.py
+                                </div>
+                                <div class="colu">
+                                    第1版
+                                </div>
+                                <div class="colu colu-m">
+                                    <div class="tagZ tagZOK">12 分 20 秒后过期</div>
+                                </div>
+                            </div>
+                            <div class="tr">
+                                <div class="colu colu-m">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="colu colu-l">
+                                    后端接口目录.\API\api.py
+                                </div>
+                                <div class="colu">
+                                    第1版
+                                </div>
+                                <div class="colu colu-m">
+                                    <div class="tagZ">已过期</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="title3">等待租约的 Agent</p>
+                        <div class="tablebox tableboxC">
+                            <div class="th">
+                                <div class="colu colu-m">Agent</div>
+                                <div class="colu colu-l">批准范围</div>
+                                <div class="colu colu">声明版本</div>
+                                <div class="colu colu-m">租约</div>
+                            </div>
+                            <div class="tr">
+                                <div class="colu colu-m">
+                                    <div class="listfieldbox">
+                                        <div class="item itemS">
+                                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                                            <div class="right">Codex 021</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="colu colu-l">
+                                    后端接口目录.\API\api.py
+                                </div>
+                                <div class="colu">
+                                    第1版
+                                </div>
+                                <div class="colu colu-m">
+                                    <div class="tagZ">等待租约</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!--意图与权限审计ASIDE-->
             <div class="asideMain" id="asideMainProj">
                 <div class="title">
                     <div class="left">
                         <i class="fa-solid fa-file-word"></i>
-                        <p>项目总目标文档</p>
+                        <p>详细信息</p>
                     </div>
                     <div class="right">×</div>
                 </div>
-                <div class="content"></div>
+                <div class="content">
+                    <p class="bgTitle">Codex 021 的意图声明</p>
+                    <div class="title">Agent</div>
+                    <div class="listfieldbox">
+                        <div class="item itemS">
+                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                            <div class="right">Codex 021</div>
+                        </div>
+                    </div>
+                    <div class="title">目标</div>
+                    <div class="textN">后端接口目录.\API\api.py</div>
+                    <div class="title">方式</div>
+                    <div class="textN">独占</div>
+                    <div class="title">原因</div>
+                    <p class="textN">
+                        前端SUBMIT表单更改，后端必须提供相关接口
+                    </p>
+                    <div class="title">声明版本</div>
+                    <p class="textN">
+                        第1版
+                    </p>
+                    <div class="title">租约</div>
+                    <div class="tagZ">尚未取得</div>
+                </div>
+                <div class="content contentNDP">
+                    <p class="bgTitle">Codex 021 的权限租约</p>
+                    <div class="title">Agent</div>
+                    <div class="listfieldbox">
+                        <div class="item itemS">
+                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                            <div class="right">Codex 021</div>
+                        </div>
+                    </div>
+                    <div class="title">批准范围</div>
+                    <div class="textN">后端接口目录.\API\api.py</div>
+                    <div class="title">声明版本</div>
+                    <div class="textN">第1版</div>
+                    <div class="title">租约</div>
+                    <div class="tagZ">等待租约</div>
+                </div>
             </div>
+
+            <!--工作区MAIN-->
             <div class="tabMain">
-                <p class="title">工作区与改动</p>
+                <p class="title">工作区</p>
+                <p class="title2">Agent 所做的改动</p>
+                <div class="boxerbox">
+                    <div class="item">
+                        <div class="header">工作区1</div>
+                        <div class="title">修改者</div>
+                        <div class="listfieldbox">
+                            <div class="item">
+                                <img class="left" src="./assets/img/agent/codex-l.png" />
+                                <div class="right">Codex 021</div>
+                            </div>
+                        </div>
+                        <div class="title">隔离方式</div>
+                        <div class="textZ">共享目录</div>
+                        <div class="title">改动的文件</div>
+                        <div class="textZbox">backend/api/user.py<br>backend/api/tests/test_user.py</div>
+                        <div class="title">当前状态</div>
+                        <div class="tgBox">
+                            <div class="tagZ tagZOK">已记录结果</div>
+                            <div class="tagZ tagZOK">与开工前一致</div>
+                        </div>
+                        <div class="title">补丁</div>
+                        <div class="textZ">补丁55aa10</div>
+                    </div>
+                </div>
             </div>
+            <!--工作区ASIDE-->
             <div class="asideMain" id="asideMainProj">
                 <div class="title">
                     <div class="left">
                         <i class="fa-solid fa-file-word"></i>
-                        <p>项目总目标文档</p>
+                        <p>详细信息</p>
                     </div>
                     <div class="right">×</div>
                 </div>
-                <div class="content"></div>
+                <div class="content">
+                    <div class="bgTitle">工作区1</div>
+                    <div class="title">修改者</div>
+                    <div class="listfieldbox">
+                        <div class="item">
+                            <img class="left" src="./assets/img/agent/codex-l.png" />
+                            <div class="right">Codex 021</div>
+                        </div>
+                    </div>
+
+                    <div class="title">隔离方式</div>
+                    <div class="textN">共享目录</div>
+
+                    <div class="title">改动的文件</div>
+                    <div class="textN">backend/api/user.py<br>backend/api/tests/test_user.py</div>
+
+                    <div class="title">当前状态</div>
+                    <div class="textN">
+                        <div class="tgBox">
+                            <div class="tagZ tagZOK">已记录结果</div>
+                            <div class="tagZ tagZOK">与开工前一致</div>
+                        </div>
+                    </div>
+
+                    <div class="title">补丁</div>
+                    <div class="textN">补丁55aa10</div>
+                </div>
             </div>
+
+            <!--完成项目MAIN-->
             <div class="tabMain">
-                <p class="title">完成与存档点</p>
+                <p class="title">项目验收</p>
+                <p class="title2">项目完成提案</p>
+                <div class="boxerbox">
+                    <div class="itemL">
+                        <p class="header header-ok">此项目已经可以完工</p>
+                        <p class="textTime">今天 16:18</p>
+                        <div class="textZbox">
+                            主 Agent 认为主要目标已达成，提议结束这一项目。如果你选择“确认完成”，项目会立即被标注为“已完成”，并且新建一个存档点。
+                        </div>
+                        <div class="option">
+                            <div class="buttonbox2 buttonbox2active">确认完成</div>
+                            <div class="buttonbox2">归档</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="title2">遗留问题</p>
+                <div class="tablebox">
+                    <div class="th">
+                        <div class="colu colu-m">问题</div>
+                        <div class="colu colu-l">说明</div>
+                    </div>
+                    <div class="tr">
+                        <div class="colu colu-m">
+                            后端API格式不标准
+                        </div>
+                        <div class="colu colu-l">
+                            已而夕阳在山，人影散乱，太守归而宾客从也。树林阴翳，鸣声上下，游人去而禽鸟乐也。然而禽鸟知山林之乐，而不知人之乐；人知从太守游而乐，而不知太守之乐其乐也。醉能同其乐，醒能述以文者，太守也。太守谓谁？庐陵欧阳修也。
+                        </div>
+                    </div>
+                </div>
+                <p class="title2">验收标准</p>
+                <div class="boxerbox">
+                    <div class="itemL">
+                        <p class="header">主 Agent 项目验收标准</p>
+                        <div class="textZbox">
+                            夫人之相与，俯仰一世。或取诸怀抱，悟言一室之内；或因寄所托，放浪形骸之外。虽趣舍万殊，静躁不同，当其欣于所遇，暂得于己，快然自足，不知老之将至；及其所之既倦，情随事迁，感慨系之矣。向之所欣，俯仰之间，已为陈迹，犹不能不以之兴怀，况修短随化，终期于尽！古人云：“死生亦大矣。”岂不痛哉！
+                        </div>
+                        <div class="option">
+                            <div class="buttonbox2 buttonbox2active">查看详情</div>
+                        </div>
+                    </div>
+                </div>
+                <p class="title2">任务验收情况</p>
+                <div class="tablebox">
+                    <div class="th">
+                        <div class="colu colu-m">Agent</div>
+                        <div class="colu colu-l">任务</div>
+                        <div class="colu colu-m">验收结果</div>
+                    </div>
+                    <div class="tr">
+                        <div class="colu colu-m">
+                            <div class="listfieldbox">
+                                <div class="item itemS">
+                                    <img class="left" src="./assets/img/agent/codex-l.png" />
+                                    <div class="right">Codex 021</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colu colu-l">
+                            后端接口目录.\API\api.py
+                        </div>
+                        <div class="colu colu-m">
+                            <div class="tagZ tagZOK">验收通过</div>
+                        </div>
+                    </div>
+                    <div class="tr">
+                        <div class="colu colu-m">
+                            <div class="listfieldbox">
+                                <div class="item itemS">
+                                    <img class="left" src="./assets/img/agent/codex-l.png" />
+                                    <div class="right">Codex 021</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colu colu-l">
+                            后端接口目录.\API\api.py
+                        </div>
+                        <div class="colu colu-m">
+                            <div class="tagZ">验收中</div>
+                        </div>
+                    </div>
+                    <div class="tr">
+                        <div class="colu colu-m">
+                            <div class="listfieldbox">
+                                <div class="item itemS">
+                                    <img class="left" src="./assets/img/agent/codex-l.png" />
+                                    <div class="right">Codex 021</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="colu colu-l">
+                            后端接口目录.\API\api.py
+                        </div>
+                        <div class="colu colu-m">
+                            <div class="tagZ">要求返工</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!--完成项目ASIDE-->
             <div class="asideMain" id="asideMainProj">
                 <div class="title">
                     <div class="left">
                         <i class="fa-solid fa-file-word"></i>
-                        <p>项目总目标文档</p>
+                        <p>详细信息</p>
                     </div>
                     <div class="right">×</div>
                 </div>
-                <div class="content"></div>
+                <div class="content">
+                    <div class="bgTitle">主 Agent 项目验收标准</div>
+                    <div class="textN">
+                        夫人之相与,俯仰一世。或取诸怀抱,悟言一室之内;或因寄所托,放浪形骸之外。虽趣舍万殊,静躁不同,当其欣于所遇,暂得于己,快然自足,不知老之将至;及其所之既倦,情随事迁,感慨系之矣。向之所欣,俯仰之间,已为陈迹,犹不能不以之兴怀,况修短随化,终期于尽!古人云:“死生亦大矣。”岂不痛哉!
+                    </div>
+                </div>
             </div>
+
+            <!--存档点MAIN-->
+            <div class="tabMain">
+                <p class="title">存档点</p>
+                <p class="title2">最新存档点</p>
+                <div class="boxerbox">
+                    <div class="item">
+                        <p class="header">今天 17:28 的存档点</p>
+                    </div>
+                </div>
+                <p class="title2">历史存档点</p>
+                <div class="boxerbox">
+                    <div class="item">
+                        <p class="header">今天 17:00 的存档点</p>
+                    </div>
+                </div>
+                <p class="title2">存档失败</p>
+                <div class="boxerbox">
+                    <div class="item">
+                        <p class="header">今天 17:00 的存档点</p>
+                        <p class="title">失败原因</p>
+                        <p class="textZ">无法读取磁盘</p>
+                        <div class="option">
+                            <div class="buttonbox2">重试</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--总路径MAIN-->
             <div class="tabMain">
                 <p class="title">总路径</p>
+                <p class="title2">可视化 Agent 们的所有行动</p>
+                <div class="taskFlow">
+                    <div class="header">
+                        <div class="Cit1">时间</div>
+                        <div class="Cit2">操作人</div>
+                        <div class="Cit2">任务</div>
+                        <div class="Cit3">操作</div>
+                    </div>
+                    <div class="eraTitle">18:36 项目初始化</div>
+                    <div class="item">
+                        <div class="Cit1">18:11</div>
+                        <div class="Cit2">
+                            <div class="listfieldbox">
+                                <div class="item itemS id-user">
+                                    <i class="left fa-solid fa-user"></i>
+                                    <div class="right">用户</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Cit2">启动主项目</div>
+                        <div class="Cit3">启动主项目</div>
+                    </div>
+                    <div class="item">
+                        <div class="Cit1">18:11</div>
+                        <div class="Cit2">
+                            <div class="listfieldbox">
+                                <div class="item itemS id-mAgent">
+                                    <img class="left" src="./assets/img/agent/codex-l.png" />
+                                    <div class="right">Codex 021</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Cit2">启动主项目</div>
+                        <div class="Cit3">启动主项目</div>
+                    </div>
+                    <div class="eraTitle">18:36 正式开工</div>
+                    <div class="item">
+                        <div class="Cit1">18:11</div>
+                        <div class="Cit2">
+                            <div class="listfieldbox">
+                                <div class="item itemS id-user">
+                                    <i class="left fa-solid fa-user"></i>
+                                    <div class="right">用户</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Cit2">启动主项目</div>
+                        <div class="Cit3">启动主项目</div>
+                    </div>
+                    <div class="item">
+                        <div class="Cit1">18:11</div>
+                        <div class="Cit2">
+                            <div class="listfieldbox">
+                                <div class="item itemS id-mAgent">
+                                    <img class="left" src="./assets/img/agent/codex-l.png" />
+                                    <div class="right">Codex 021</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Cit2">启动主项目</div>
+                        <div class="Cit3">启动主项目</div>
+                    </div>
+                    <div class="item">
+                        <div class="Cit1">18:11</div>
+                        <div class="Cit2">
+                            <div class="listfieldbox">
+                                <div class="item itemS id-user">
+                                    <i class="left fa-solid fa-user"></i>
+                                    <div class="right">用户</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Cit2">启动主项目</div>
+                        <div class="Cit3">启动主项目</div>
+                    </div>
+                    <div class="item">
+                        <div class="Cit1">18:11</div>
+                        <div class="Cit2">
+                            <div class="listfieldbox">
+                                <div class="item itemS id-mAgent">
+                                    <img class="left" src="./assets/img/agent/codex-l.png" />
+                                    <div class="right">Codex 021</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Cit2">启动主项目</div>
+                        <div class="Cit3">启动主项目</div>
+                    </div>
+                    <div class="item">
+                        <div class="Cit1">18:11</div>
+                        <div class="Cit2">
+                            <div class="listfieldbox">
+                                <div class="item itemS id-user">
+                                    <i class="left fa-solid fa-user"></i>
+                                    <div class="right">用户</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Cit2">启动主项目</div>
+                        <div class="Cit3">启动主项目</div>
+                    </div>
+                    <div class="item">
+                        <div class="Cit1">18:11</div>
+                        <div class="Cit2">
+                            <div class="listfieldbox">
+                                <div class="item itemS id-mAgent">
+                                    <img class="left" src="./assets/img/agent/codex-l.png" />
+                                    <div class="right">Codex 021</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Cit2">启动主项目</div>
+                        <div class="Cit3">启动主项目</div>
+                    </div>
+                    <div class="item">
+                        <div class="Cit1">18:11</div>
+                        <div class="Cit2">
+                            <div class="listfieldbox">
+                                <div class="item itemS id-user">
+                                    <i class="left fa-solid fa-user"></i>
+                                    <div class="right">用户</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Cit2">启动主项目</div>
+                        <div class="Cit3">启动主项目</div>
+                    </div>
+                    <div class="item">
+                        <div class="Cit1">18:11</div>
+                        <div class="Cit2">
+                            <div class="listfieldbox">
+                                <div class="item itemS id-mAgent">
+                                    <img class="left" src="./assets/img/agent/codex-l.png" />
+                                    <div class="right">Codex 021</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Cit2">启动主项目</div>
+                        <div class="Cit3">启动主项目</div>
+                    </div>
+                    <div class="item">
+                        <div class="Cit1">18:11</div>
+                        <div class="Cit2">
+                            <div class="listfieldbox">
+                                <div class="item itemS id-user">
+                                    <i class="left fa-solid fa-user"></i>
+                                    <div class="right">用户</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Cit2">启动主项目</div>
+                        <div class="Cit3">启动主项目</div>
+                    </div>
+                    <div class="item">
+                        <div class="Cit1">18:11</div>
+                        <div class="Cit2">
+                            <div class="listfieldbox">
+                                <div class="item itemS id-mAgent">
+                                    <img class="left" src="./assets/img/agent/codex-l.png" />
+                                    <div class="right">Codex 021</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Cit2">启动主项目</div>
+                        <div class="Cit3">启动主项目</div>
+                    </div>
+                </div>
             </div>
+            <!--总路径ASIDE-->
             <div class="asideMain" id="asideMainProj">
                 <div class="title">
                     <div class="left">
                         <i class="fa-solid fa-file-word"></i>
-                        <p>项目总目标文档</p>
+                        <p>路径详情</p>
                     </div>
                     <div class="right">×</div>
                 </div>
-                <div class="content"></div>
+                <div class="content">
+                    <div class="title">时间</div>
+                    <div class="textN">18:11</div>
+                    <div class="title">操作人</div>
+                    <div class="textN">用户</div>
+                    <div class="title">任务</div>
+                    <div class="textN">启动主项目</div>
+                    <div class="title">操作</div>
+                    <div class="textN">启动主项目</div>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -1225,6 +2132,7 @@
         </div>
     </section>
 
+    <!--窗口：进度条-->
     <section class="secWindow" id="loadW">
         <div class="window5">
             <div class="loaderbox"></div>
