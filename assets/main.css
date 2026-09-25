@@ -1014,6 +1014,17 @@ html[data-theme="dark"] {
     .header-nav { display: none; }
     #tocToggle { display: inline-flex; }
 
+    /* 移动端顶栏内容收紧：缩小 Logo、间距与按钮内边距，防止导航栏溢出屏幕 */
+    .site-header {
+        gap: 8px;
+        padding: 0 10px;
+    }
+    .header-brand img { height: 24px; }
+    .header-actions { gap: 6px; }
+    .icon-btn { height: 32px; padding: 0 8px; }
+    .locale-toggle { padding: 2px; }
+    .locale-toggle-item { padding: 4px 9px; font-size: 12px; }
+
     /* 目录侧栏固定为左侧抽屉 */
     .toc-sidebar {
         position: fixed;
@@ -1072,6 +1083,20 @@ html[data-theme="dark"] {
     /* 正文不再受侧栏挤压 */
     .page-layout { display: block; }
     .article { max-width: none; }
+
+    /* 图片自适应：手机端减小定死高度；过宽的图片保持原始比例，以横向滚动查看，
+       不再因 max-width:100% 被横向压缩（定高本身不变，仅移动端约束上限） */
+    .imgblock {
+        align-items: flex-start;          /* 防止居中溢出时左侧无法滚动到 */
+        overflow-x: auto;                 /* 过宽图片出现横向滚动条 */
+        -webkit-overflow-scrolling: touch;
+    }
+    .imgblock img {
+        max-height: min(220px, 50vw);     /* 移动端减小定死高度（同时约束内联定高） */
+        max-width: none;                  /* 不再横向压缩，保持原始宽高比 */
+        margin-left: auto;                /* 未溢出时仍保持居中 */
+        margin-right: auto;
+    }
 
     /* 页脚改为单列 */
     .footer-inner { grid-template-columns: 1fr; gap: 24px; }
