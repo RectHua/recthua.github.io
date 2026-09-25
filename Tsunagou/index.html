@@ -16,14 +16,14 @@
         <div class="header">
             <div class="topper">
                 <img src="./assets/img/logo-l.png" />
-                <div class="sdBtn" onclick="sidebarToNarrow()">
+                <div class="sdBtn" onclick="Tsunagou.app.foldSidebar()">
                     <i class="fa-solid fa-angle-left"></i>
                 </div>
             </div>
-            <div class="newBtn" onclick="openWindow('addProj')"><i class="fa-solid fa-file-circle-plus"></i>创建协作</div>
+            <div class="newBtn" onclick="Tsunagou.app.createProject()"><i class="fa-solid fa-file-circle-plus"></i>创建协作</div>
         </div>
         <!--协作项目列表-->
-        <div class="subMgr">
+        <div class="subMgr" id="projList">
             <div class="wkTitle">
                 <div class="wkTleft">
                     <p>进行中的协作</p>
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="projItem">
-                <div class="inner" onclick="openProj()">
+                <div class="inner" onclick="Tsunagou.app.openProject()">
                     <p class="title">你好，世界 —— 一种基于Hello World文化的3D游戏开发</p>
                     <div class="content">
                         <div class="left">
@@ -118,11 +118,11 @@
         </div>
         <!--侧边栏底部按钮-->
         <div class="btmTabs">
-            <div class="btmBtn" onclick="openWindow('mgrAgent')">
+            <div class="btmBtn" onclick="Tsunagou.app.openAgents()">
                 <i class="fa-solid fa-terminal"></i>
                 <p>Agent列表</p>
             </div>
-            <div class="btmBtn" onclick="openWindow('setPanel')">
+            <div class="btmBtn" onclick="Tsunagou.app.openSettings()">
                 <i class="fa-solid fa-cog"></i>
                 <p>系统设置</p>
             </div>
@@ -134,13 +134,13 @@
         <!--顶部按钮-->
         <div class="topArea">
             <img class="foldImg" src="./assets/img/logo-little-l.png" />
-            <div class="foldBtn" onclick="openWindow('addProj')"><i class="fa-solid fa-file-circle-plus"></i></div>
-            <div class="foldBtn" onclick="sidebarToWide()"><i class="fa-solid fa-angle-right"></i></div>
+            <div class="foldBtn" onclick="Tsunagou.app.createProject()"><i class="fa-solid fa-file-circle-plus"></i></div>
+            <div class="foldBtn" onclick="Tsunagou.app.unfoldSidebar()"><i class="fa-solid fa-angle-right"></i></div>
         </div>
         <!--底部按钮-->
         <div class="bottomArea">
-            <div class="foldBtn" onclick="openWindow('mgrAgent')"><i class="fa-solid fa-terminal"></i></div>
-            <div class="foldBtn" onclick="openWindow('setPanel')"><i class="fa-solid fa-cog"></i></div>
+            <div class="foldBtn" onclick="Tsunagou.app.openAgents()"><i class="fa-solid fa-terminal"></i></div>
+            <div class="foldBtn" onclick="Tsunagou.app.openSettings()"><i class="fa-solid fa-cog"></i></div>
         </div>
     </section>
 
@@ -154,15 +154,15 @@
                     <p>世界因协作而无限</p>
                 </div>
                 <div class="btnArea">
-                    <div class="bigBtn" onclick="openWindow('addProj')">
+                    <div class="bigBtn" onclick="Tsunagou.app.createProject()">
                         <i class="bigBtnIcon fa-solid fa-file-circle-plus"></i>
                         <p class="bigBtnTxt">创建协作</p>
                     </div>
-                    <div class="bigBtn" onclick="openWindow('mgrAgent')">
+                    <div class="bigBtn" onclick="Tsunagou.app.openAgents()">
                         <i class="bigBtnIcon fa-solid fa-terminal"></i>
                         <p class="bigBtnTxt">Agent 列表</p>
                     </div>
-                    <div class="bigBtn" onclick="openWindow('setPanel')">
+                    <div class="bigBtn" onclick="Tsunagou.app.openSettings()">
                         <i class="bigBtnIcon fa-solid fa-cog"></i>
                         <p class="bigBtnTxt">系统设置</p>
                     </div>
@@ -192,21 +192,21 @@
         </div>
         <!--总标签页-->
         <div class="tabArea">
-            <div class="tabS tabSactive">主视图</div>
-            <div class="tabS">我的收件箱</div>
-            <div class="tabS">Agent 管理</div>
-            <div class="tabS">任务区</div>
-            <div class="tabS">冲突与协商</div>
-            <div class="tabS">意图与权限审计</div>
-            <div class="tabS">工作区</div>
-            <div class="tabS">项目验收</div>
-            <div class="tabS">存档点</div>
-            <div class="tabS">总路径</div>
+            <div class="tabS tabSactive" id="tab-overview">主视图</div>
+            <div class="tabS" id="tab-inbox">我的收件箱</div>
+            <div class="tabS" id="tab-agents">Agent 管理</div>
+            <div class="tabS" id="tab-tasks">任务区</div>
+            <div class="tabS" id="tab-conflict">冲突与协商</div>
+            <div class="tabS" id="tab-audit">意图与权限审计</div>
+            <div class="tabS" id="tab-workspace">工作区</div>
+            <div class="tabS" id="tab-acceptance">项目验收</div>
+            <div class="tabS" id="tab-checkpoints">存档点</div>
+            <div class="tabS" id="tab-path">总路径</div>
         </div>
         <!--主要内容区域-->
         <div class="inner">
             <!--主视图MAIN-->
-            <div class="tabMain tabMainNormal">
+            <div class="tabMain tabMainNormal" id="pane-overview">
                 <p class="title">主视图</p>
                 <p class="title2">项目名称/描述</p>
                 <div class="bgTxt">你好,世界——一种基于Hello World文化的3D游戏开发</div>
@@ -321,7 +321,7 @@
             </div>
 
             <!--我的收件箱MAIN-->
-            <div class="tabMain">
+            <div class="tabMain" id="pane-inbox">
                 <p class="title">我的收件箱</p>
                 <p class="title2">
                     需要你处理/授权的信息
@@ -555,7 +555,7 @@
                 </div>
             </div>
             <!--我的收件箱ASIDE-->
-            <div class="asideMain" id="asideMainProj">
+            <div class="asideMain" id="aside-inbox">
                 <div class="title">
                     <div class="left">
                         <i class="fa-solid fa-file-word"></i>
@@ -585,7 +585,7 @@
             </div>
 
             <!--Agent 管理MAIN-->
-            <div class="tabMain">
+            <div class="tabMain" id="pane-agents">
                 <p class="title">Agent 管理</p>
                 <p class="title2">
                     管理现有的 Agent
@@ -672,7 +672,7 @@
             </div>
 
             <!--任务区MAIN-->
-            <div class="tabMain">
+            <div class="tabMain" id="pane-tasks">
                 <p class="title">任务区</p>
                 <p class="title2">
                     当前子 Agent 的任务清单
@@ -717,7 +717,7 @@
                 </div>
             </div>
             <!--任务区ASIDE-->
-            <div class="asideMain" id="asideMainProj">
+            <div class="asideMain" id="aside-tasks">
                 <div class="title">
                     <div class="left">
                         <i class="fa-solid fa-file-word"></i>
@@ -750,10 +750,10 @@
             </div>
 
             <!--冲突与协商MAIN-->
-            <div class="tabMain">
+            <div class="tabMain" id="pane-conflict">
                 <p class="title">冲突与协商</p>
                 <p class="title2">Agent 间的冲突与协商</p>
-                <div class="tabblock">
+                <div class="tabblock" id="block-conflict">
                     <div class="tabPlace">
                         <div class="tabItem tabItemActive">分歧</div>
                         <div class="tabItem">冲突</div>
@@ -958,7 +958,7 @@
                 </div>
             </div>
             <!--冲突与协商ASIDE-->
-            <div class="asideMain" id="asideMainProj">
+            <div class="asideMain" id="aside-conflict">
                 <div class="title">
                     <div class="left">
                         <i class="fa-solid fa-file-word"></i>
@@ -1032,10 +1032,10 @@
             </div>
 
             <!--意图与权限审计MAIN-->
-            <div class="tabMain">
+            <div class="tabMain" id="pane-audit">
                 <p class="title">意图与权限审计</p>
                 <p class="title2">Agent 的意图和修改权限</p>
-                <div class="tabblock">
+                <div class="tabblock" id="block-audit">
                     <div class="tabPlace">
                         <div class="tabItem tabItemActive">Agent 意图</div>
                         <div class="tabItem">Agent 权限</div>
@@ -1207,7 +1207,7 @@
                 </div>
             </div>
             <!--意图与权限审计ASIDE-->
-            <div class="asideMain" id="asideMainProj">
+            <div class="asideMain" id="aside-audit">
                 <div class="title">
                     <div class="left">
                         <i class="fa-solid fa-file-word"></i>
@@ -1258,7 +1258,7 @@
             </div>
 
             <!--工作区MAIN-->
-            <div class="tabMain">
+            <div class="tabMain" id="pane-workspace">
                 <p class="title">工作区</p>
                 <p class="title2">Agent 所做的改动</p>
                 <div class="boxerbox">
@@ -1286,7 +1286,7 @@
                 </div>
             </div>
             <!--工作区ASIDE-->
-            <div class="asideMain" id="asideMainProj">
+            <div class="asideMain" id="aside-workspace">
                 <div class="title">
                     <div class="left">
                         <i class="fa-solid fa-file-word"></i>
@@ -1324,7 +1324,7 @@
             </div>
 
             <!--完成项目MAIN-->
-            <div class="tabMain">
+            <div class="tabMain" id="pane-acceptance">
                 <p class="title">项目验收</p>
                 <p class="title2">项目完成提案</p>
                 <div class="boxerbox">
@@ -1426,7 +1426,7 @@
             </div>
 
             <!--完成项目ASIDE-->
-            <div class="asideMain" id="asideMainProj">
+            <div class="asideMain" id="aside-acceptance">
                 <div class="title">
                     <div class="left">
                         <i class="fa-solid fa-file-word"></i>
@@ -1443,7 +1443,7 @@
             </div>
 
             <!--存档点MAIN-->
-            <div class="tabMain">
+            <div class="tabMain" id="pane-checkpoints">
                 <p class="title">存档点</p>
                 <p class="title2">最新存档点</p>
                 <div class="boxerbox">
@@ -1471,7 +1471,7 @@
             </div>
 
             <!--总路径MAIN-->
-            <div class="tabMain">
+            <div class="tabMain" id="pane-path">
                 <p class="title">总路径</p>
                 <p class="title2">可视化 Agent 们的所有行动</p>
                 <div class="taskFlow">
@@ -1642,7 +1642,7 @@
                 </div>
             </div>
             <!--总路径ASIDE-->
-            <div class="asideMain" id="asideMainProj">
+            <div class="asideMain" id="aside-path">
                 <div class="title">
                     <div class="left">
                         <i class="fa-solid fa-file-word"></i>
@@ -1670,24 +1670,24 @@
         <div class="window1">
             <div class="titleBar">
                 <div class="title"><i class="fa-solid fa-cog"></i> 设置</div>
-                <div class="button" onclick="closeWindow('setPanel')">×</div>
+                <div class="button" onclick="Tsunagou.app.closeWindow('setPanel')">×</div>
             </div>
             <div class="main">
                 <div class="left">
                     <div class="inner">
-                        <div class="item Active" id="uSet1b" onclick="toSetTab('uSet1')">
+                        <div class="item Active" id="uSet1b" onclick="Tsunagou.app.settingTab('personal')">
                             <i class="fa-regular fa-user"></i>
                             <p>个性化设置</p>
                         </div>
-                        <div class="item NoActive" id="uSet2b" onclick="toSetTab('uSet2')">
+                        <div class="item NoActive" id="uSet2b" onclick="Tsunagou.app.settingTab('data')">
                             <i class="fa-regular fa-folder"></i>
                             <p>调度数据管理</p>
                         </div>
-                        <div class="item NoActive" id="uSet3b" onclick="toSetTab('uSet3')">
+                        <div class="item NoActive" id="uSet3b" onclick="Tsunagou.app.settingTab('debug')">
                             <i class="fa-solid fa-tags"></i>
                             <p>DEBUG 选项</p>
                         </div>
-                        <div class="item NoActive" id="uSet4b" onclick="toSetTab('uSet4')">
+                        <div class="item NoActive" id="uSet4b" onclick="Tsunagou.app.settingTab('about')">
                             <i class="fa-solid fa-tags"></i>
                             <p>关于 Tsunagou</p>
                         </div>
@@ -1708,7 +1708,7 @@
                                             <div class="left">深色</div>
                                             <div class="right"></div>
                                         </div>
-                                        <div class="chooseboxOpen" id="uSetCol">
+                                        <div class="chooseboxOpen" id="uSetCol1">
                                             <p>深色</p>
                                             <p>浅色</p>
                                             <p>自动</p>
@@ -1752,7 +1752,7 @@
                                             <div class="left">永不</div>
                                             <div class="right"></div>
                                         </div>
-                                        <div class="chooseboxOpen" id="uSetCol">
+                                        <div class="chooseboxOpen" id="uSetCol2">
                                             <p>永不</p>
                                             <p>1天</p>
                                             <p>7天</p>
@@ -1766,7 +1766,7 @@
                                         <p class="sword">删除本机的所有协作数据</p>
                                     </div>
                                     <div class="right">
-                                        <div class="buttonbox" onclick="openWindow('delDat')">清除</div>
+                                        <div class="buttonbox" onclick="Tsunagou.app.openWindow('delDat')">清除</div>
                                     </div>
                                 </div>
                             </div>
@@ -1783,7 +1783,7 @@
                                         <p class="sword">DEBUG</p>
                                     </div>
                                     <div class="right">
-                                        <div class="buttonbox" onclick="debug()">开始</div>
+                                        <div class="buttonbox" onclick="Tsunagou.app.demo.success()">开始</div>
                                     </div>
                                 </div>
                                 <div class="item">
@@ -1792,7 +1792,7 @@
                                         <p class="sword">DEBUG</p>
                                     </div>
                                     <div class="right">
-                                        <div class="buttonbox" onclick="debug2()">开始</div>
+                                        <div class="buttonbox" onclick="Tsunagou.app.demo.info()">开始</div>
                                     </div>
                                 </div>
                                 <div class="item">
@@ -1801,7 +1801,7 @@
                                         <p class="sword">DEBUG</p>
                                     </div>
                                     <div class="right">
-                                        <div class="buttonbox" onclick="openWindow('loadW')">开始</div>
+                                        <div class="buttonbox" onclick="Tsunagou.app.demo.loading()">开始</div>
                                     </div>
                                 </div>
                                 <div class="item">
@@ -1810,7 +1810,7 @@
                                         <p class="sword">DEBUG</p>
                                     </div>
                                     <div class="right">
-                                        <div class="buttonbox" onclick="openTST()">开始</div>
+                                        <div class="buttonbox" onclick="Tsunagou.app.demo.decision()">开始</div>
                                     </div>
                                 </div>
                             </div>
@@ -1841,12 +1841,12 @@
         <div class="window1">
             <div class="titleBar">
                 <div class="title"><i class="fa-solid fa-terminal"></i> Agent 列表</div>
-                <div class="button" onclick="closeWindow('mgrAgent')">×</div>
+                <div class="button" onclick="Tsunagou.app.closeWindow('mgrAgent')">×</div>
             </div>
             <div class="main">
                 <div class="inner">
                     <div class="table">
-                        <div class="item" onclick="openWindow('mgrAgentInfo')">
+                        <div class="item" onclick="Tsunagou.app.openAgentInfo('a-054')">
                             <div class="title"><img src="./assets/img/agent/deepseek-l.png" />DeepSeek Harness（054）
                             </div>
                             <div class="content">
@@ -1875,7 +1875,7 @@
         <div class="window2">
             <div class="titleBar">
                 <div class="title"><i class="fa-solid fa-terminal"></i>DeepSeek Harness（054）详细信息</div>
-                <div class="button" onclick="closeWindow('mgrAgentInfo')">×</div>
+                <div class="button" onclick="Tsunagou.app.closeWindow('mgrAgentInfo')">×</div>
             </div>
             <div class="content">
                 <div class="uiBlock">
@@ -1917,7 +1917,7 @@
                 </div>
             </div>
             <div class="options">
-                <div class="buttonbox2 buttonbox2active" onclick="closeWindow('mgrAgentInfo')">确定</div>
+                <div class="buttonbox2 buttonbox2active">确定</div>
             </div>
         </div>
     </section>
@@ -1927,7 +1927,7 @@
         <div class="window3">
             <div class="titleBar">
                 <div class="title">删除 Agent</div>
-                <div class="button" onclick="closeWindow('delPmt')">×</div>
+                <div class="button" onclick="Tsunagou.app.closeWindow('delPmt')">×</div>
             </div>
             <div class="content">
                 <div class="left"><i class="fa-solid fa-circle-exclamation"></i></div>
@@ -1937,7 +1937,7 @@
                 </div>
             </div>
             <div class="options">
-                <div class="buttonbox2" onclick="closeWindow('delPmt')">取消</div>
+                <div class="buttonbox2" onclick="Tsunagou.app.closeWindow('delPmt')">取消</div>
                 <div class="buttonbox2 buttonbox2active">确定</div>
             </div>
         </div>
@@ -1948,7 +1948,7 @@
         <div class="window3">
             <div class="titleBar">
                 <div class="title">抹除全部数据</div>
-                <div class="button" onclick="closeWindow('delDat')">×</div>
+                <div class="button" onclick="Tsunagou.app.closeWindow('delDat')">×</div>
             </div>
             <div class="content">
                 <div class="left"><i class="fa-solid fa-circle-exclamation"></i></div>
@@ -1958,7 +1958,7 @@
                 </div>
             </div>
             <div class="options">
-                <div class="buttonbox2" onclick="closeWindow('delDat')">取消</div>
+                <div class="buttonbox2" onclick="Tsunagou.app.closeWindow('delDat')">取消</div>
                 <div class="buttonbox2 buttonbox2active">确定</div>
             </div>
         </div>
@@ -1969,7 +1969,7 @@
         <div class="window4">
             <div class="titleBar">
                 <div class="title"><i class="fa-solid fa-file-circle-plus"></i> 新建协作</div>
-                <div class="button" onclick="closeWindow('addProj')">×</div>
+                <div class="button" onclick="Tsunagou.app.closeWindow('addProj')">×</div>
             </div>
             <div class="content">
                 <div class="left">
@@ -2018,7 +2018,7 @@
                                 <img class="left" src="./assets/img/agent/deepseek-l.png" />
                                 <div class="right">DeepSeek Harness</div>
                             </div>
-                            <div class="itemAdd" onclick="openWindow('addSubAgent')">
+                            <div class="itemAdd" onclick="Tsunagou.app.addSubAgent()">
                                 <i class="fa fa-circle-plus"></i>
                             </div>
                         </div>
@@ -2054,20 +2054,20 @@
                 </div>
             </div>
             <div class="options" id="xz1">
-                <div class="buttonbox2" onclick="closeWindow('addProj')">取消</div>
-                <div class="buttonbox2 buttonbox2active" onclick="newXzNext()">下一步</div>
+                <div class="buttonbox2" onclick="Tsunagou.app.closeWindow('addProj')">取消</div>
+                <div class="buttonbox2 buttonbox2active" onclick="Tsunagou.app.wizardNext()">下一步</div>
             </div>
             <div class="options" id="xz2">
-                <div class="buttonbox2" onclick="newXzPrev()">上一步</div>
-                <div class="buttonbox2 buttonbox2active" onclick="newXzNext()">下一步</div>
+                <div class="buttonbox2" onclick="Tsunagou.app.wizardPrev()">上一步</div>
+                <div class="buttonbox2 buttonbox2active" onclick="Tsunagou.app.wizardNext()">下一步</div>
             </div>
             <div class="options" id="xz3">
-                <div class="buttonbox2" onclick="newXzPrev()">上一步</div>
-                <div class="buttonbox2 buttonbox2active" onclick="newXzNext()">下一步</div>
+                <div class="buttonbox2" onclick="Tsunagou.app.wizardPrev()">上一步</div>
+                <div class="buttonbox2 buttonbox2active" onclick="Tsunagou.app.wizardNext()">下一步</div>
             </div>
             <div class="options" id="xz4">
-                <div class="buttonbox2" onclick="newXzPrev()">上一步</div>
-                <div class="buttonbox2 buttonbox2active" onclick="newXzFinish()">完成</div>
+                <div class="buttonbox2" onclick="Tsunagou.app.wizardPrev()">上一步</div>
+                <div class="buttonbox2 buttonbox2active" onclick="Tsunagou.app.wizardFinish()">完成</div>
             </div>
         </div>
     </section>
@@ -2112,7 +2112,7 @@
         <div class="window2">
             <div class="titleBar">
                 <div class="title"><i class="fa-solid fa-circle-plus"></i>添加子 Agent</div>
-                <div class="button" onclick="closeWindow('addSubAgent')">×</div>
+                <div class="button" onclick="Tsunagou.app.closeWindow('addSubAgent')">×</div>
             </div>
             <div class="content">
                 <div class="uiBlock">
@@ -2126,8 +2126,8 @@
                 </div>
             </div>
             <div class="options">
-                <div class="buttonbox2" onclick="closeWindow('addSubAgent')">取消</div>
-                <div class="buttonbox2 buttonbox2active" onclick="closeWindow('addSubAgent')">确定</div>
+                <div class="buttonbox2" onclick="Tsunagou.app.closeWindow('addSubAgent')">取消</div>
+                <div class="buttonbox2 buttonbox2active">确定</div>
             </div>
         </div>
     </section>
@@ -2141,6 +2141,9 @@
     </section>
 
     <script src="./assets/js/behavior.js"></script>
+    <!-- 模拟后端（开发/演示用）：拦下 fetch 按 method.md 的接口表应答。
+         接真实后端时删掉这一行即可。 -->
+    <script src="./assets/js/mock-backend.js"></script>
 </body>
 
 </html>
